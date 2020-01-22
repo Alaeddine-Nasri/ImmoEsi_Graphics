@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="938.0" style="-fx-background-color: #7F59B0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="WHITE" layoutX="403.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 33; -fx-text-alignment: center;" text="ImmoEsi">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="182.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Administrateur">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="577.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Simple Utilisateur">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <Button id="Admin" fx:id="Admin" layoutX="182.0" layoutY="235.0" mnemonicParsing="false" opacity="0.0" prefHeight="200.0" prefWidth="178.0" text="Admin" />
+      <ImageView fitHeight="132.0" fitWidth="133.0" layoutX="403.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/sell.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="178.0" layoutX="196.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/admin-ui.png" />
+         </image>
+      </ImageView>
+      <Button id="Simple" fx:id="user" layoutX="592.0" layoutY="235.0" mnemonicParsing="false" opacity="0.0" prefHeight="200.0" prefWidth="178.0" text="Simple" />
+      <ImageView fitHeight="150.0" fitWidth="178.0" layoutX="620.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/user.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

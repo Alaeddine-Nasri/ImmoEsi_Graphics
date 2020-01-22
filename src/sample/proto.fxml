@@ -40,6 +40,6 @@
             <Image url="@../icons/user.png" />
          </image>
       </ImageView>
-      <Button id="Simple" fx:id="user" layoutX="572.0" layoutY="239.0" mnemonicParsing="false" opacity="0.1" prefHeight="200.0" prefWidth="219.0" />
+      <Button fx:id="user" layoutX="572.0" layoutY="239.0" mnemonicParsing="false" opacity="0.1" prefHeight="200.0" prefWidth="219.0" stylesheets="@styles.css" />
    </children>
 </AnchorPane>

@@ -1,0 +1,19 @@
+#sign  {
+           -fx-background-color: #E84C89;
+            -fx-background-radius: 40px, 40px, 40px, 40px;
+}
+#sign:hover{
+    -fx-background-color: #7F59B0;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+#forgotpassword{
+    -fx-background-color: transparent;
+}
+#forgotpassword:hover{
+
+    -fx-text-fill: #7F59B0;
+}
+#inputsignup{
+        -fx-background-radius: 18px, 18px, 18px, 18px;
+}

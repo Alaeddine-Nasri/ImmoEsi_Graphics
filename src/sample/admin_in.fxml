@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller3">
    <children>
       <Pane prefHeight="500.0" prefWidth="659.0" style="-fx-background-color: #7F59B0;">
          <children>
@@ -84,7 +83,7 @@
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="368.0" layoutY="250.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="393.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
+            <Text fill="WHITE" layoutX="393.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Afficher tous les biens">
                <font>
                   <Font size="15.0" />
                </font>
@@ -127,6 +126,7 @@
             </Text>
             <Button layoutX="93.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="102.0" />
             <Button layoutX="443.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="120.0" />
+            <Button fx:id="affichertouslesbiens" layoutX="363.0" layoutY="237.0" mnemonicParsing="false" onAction="#gotouslesbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
          </children>
       </Pane>
       <ImageView fitHeight="90.0" fitWidth="91.0" layoutX="736.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">

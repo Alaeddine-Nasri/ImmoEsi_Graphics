@@ -50,6 +50,8 @@ public class Controller3 {
                 Pane details = new Pane();
                 Text title = new Text(); Text bienName = new Text(); Text bienAdresse = new Text(); Text bienProp = new Text();
                 Text bienTypet = new Text(); Text bienTypeb = new Text(); Text bienPrix = new Text(); Text bienSurface = new Text();
+                Text bienName1 = new Text(); Text bienAdresse1 = new Text(); Text bienProp1 = new Text();
+                Text bienTypet1 = new Text(); Text bienTypeb1 = new Text(); Text bienPrix1 = new Text(); Text bienSurface1 = new Text();
 
                 /************************************************** Biens Button ***************************************************/
 
@@ -136,6 +138,51 @@ public class Controller3 {
                 bienPrix.setFill(Paint.valueOf("#000000"));
                 bienPrix.setFont(Font.font("System", FontWeight.BOLD, 23));
 
+                /************************************************** Details Text ***************************************************/
+
+                bienName1.setText("Bien1 :");
+                bienName1.setFill(Paint.valueOf("#000000"));
+                bienName1.setFont(Font.font("System", FontWeight.BOLD, 30));
+                bienName1.setLayoutX(40);
+                bienName1.setLayoutY(230);
+
+                bienAdresse1.setText("Adresse :");
+                bienAdresse1.setLayoutX(55);
+                bienAdresse1.setLayoutY(260);
+                bienAdresse1.setFill(Paint.valueOf("#000000"));
+                bienAdresse1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+                bienTypeb1.setText("Type de Bien :");
+                bienTypeb1.setLayoutX(55);
+                bienTypeb1.setLayoutY(285);
+                bienTypeb1.setFill(Paint.valueOf("#000000"));
+                bienTypeb1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+                bienTypet1.setText("Type de transaction :");
+                bienTypet1.setLayoutX(55);
+                bienTypet1.setLayoutY(310);
+                bienTypet1.setFill(Paint.valueOf("#000000"));
+                bienTypet1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+                bienProp1.setText("Propritére :");
+                bienProp1.setLayoutX(55);
+                bienProp1.setLayoutY(335);
+                bienProp1.setFill(Paint.valueOf("#000000"));
+                bienProp1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+                bienSurface1.setText("Surface :");
+                bienSurface1.setLayoutX(55);
+                bienSurface1.setLayoutY(360);
+                bienSurface1.setFill(Paint.valueOf("#000000"));
+                bienSurface1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+                bienPrix1.setText("Prix :");
+                bienPrix1.setLayoutX(85);
+                bienPrix1.setLayoutY(385);
+                bienPrix1.setFill(Paint.valueOf("#000000"));
+                bienPrix1.setFont(Font.font("System", FontWeight.BOLD, 23));
+
+
                 /************************************************** Button AnchorPane ***************************************************/
 
                 banchor.setMinHeight(200);
@@ -153,6 +200,15 @@ public class Controller3 {
                 banchor.getChildren().add(bienProp);
                 banchor.getChildren().add(bienSurface);
                 banchor.getChildren().add(bienPrix);
+
+                details.getChildren().add(bienName1);
+                details.getChildren().add(bienAdresse1);
+                details.getChildren().add(bienTypeb1);
+                details.getChildren().add(bienTypet1);
+                details.getChildren().add(bienProp1);
+                details.getChildren().add(bienSurface1);
+                details.getChildren().add(bienPrix1);
+
                 //banchor.setOnMouseClicked(e -> banchor.setStyle(HOVERED_BUTTON_STYLE));
                 bienbox.getChildren().add(b);
                 r.getChildren().add(bienbox);

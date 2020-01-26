@@ -94,20 +94,20 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Circle fill="WHITE" layoutX="368.0" layoutY="310.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="392.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
             <Circle fill="WHITE" layoutX="368.0" layoutY="280.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="393.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
+            <Text fill="WHITE" layoutX="392.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="368.0" layoutY="370.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="392.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
+            <Text fill="WHITE" layoutX="393.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supprimer Bien">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Circle fill="WHITE" layoutX="368.0" layoutY="310.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="WHITE" layoutX="392.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archiver un Bien">
                <font>
                   <Font size="15.0" />
                </font>
@@ -127,6 +127,9 @@
             <Button layoutX="93.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="102.0" />
             <Button layoutX="443.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="120.0" />
             <Button fx:id="affichertouslesbiens" layoutX="363.0" layoutY="237.0" mnemonicParsing="false" onAction="#gotouslesbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="SupprimerBien" layoutX="363.0" layoutY="267.0" mnemonicParsing="false" onAction="#gosuppbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ajouterbien" layoutX="363.0" layoutY="297.0" mnemonicParsing="false" onAction="#goajouterbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ArchiverBien" layoutX="363.0" layoutY="327.0" mnemonicParsing="false" onAction="#Archiverbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
          </children>
       </Pane>
       <ImageView fitHeight="90.0" fitWidth="91.0" layoutX="736.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">

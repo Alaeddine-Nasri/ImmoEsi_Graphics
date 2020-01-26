@@ -43,15 +43,6 @@ public class Controller2 {
 
      //   this.secondstage= stage;
     }
-    public void gotous() throws Exception {
-        Stage stage = Main.getPrimaryStage();
-        Parent root = FXMLLoader.load(getClass().getResource("tous_les_bien.fxml"));
-        stage.setTitle("ImmoEsi");
-        stage.setScene(new Scene(root, 900, 500));
-        stage.show();
-        //    this.secondstage= stage;
-    }
-
 
 
 }

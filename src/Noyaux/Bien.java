@@ -17,6 +17,16 @@ public abstract class Bien implements  Comparable<Bien>{
     private Date date;
     private String photos; //Lien URL vers l'album des photos
 
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
+    }
+
+    private Boolean selected = false;
+
     public Bien(String adresse, Wilaya wilaya, float surface, Proprietaire proprietaire, TypeDeTransaction transaction, float prix, boolean negociable, String descriptif, Date date, String photos)  {
         this.adresse = adresse;
         this.wilaya = wilaya;
@@ -126,4 +136,11 @@ public abstract class Bien implements  Comparable<Bien>{
         return transaction;
     }
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public Proprietaire getProprietaire() {
+        return proprietaire;
+    }
 }

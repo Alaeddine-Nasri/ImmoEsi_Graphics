@@ -54,4 +54,16 @@ public class Proprietaire implements Comparable<Proprietaire> {
     public int compareTo(Proprietaire proprietaire) {
         return 0;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNum_tel() {
+        return num_tel;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
 }

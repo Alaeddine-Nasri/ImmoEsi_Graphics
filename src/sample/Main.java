@@ -1,11 +1,17 @@
 package sample;
 
+import Noyaux.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main extends Application {
     static private Stage primaryStage;
@@ -24,7 +30,8 @@ public class Main extends Application {
         //BorderPane administration = loader.load();
 
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BienExistantException, SuperficieHabitableException {
+
         launch(args);
     }
 

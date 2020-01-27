@@ -333,6 +333,23 @@ public class Controller3 {
     private VBox bienbox= new VBox();
     //private VBox bien1 = new VBox();
 
+    public void lected(Bien ele,Button b) throws Exception {
+     System.out.println("here we go");
+     if(ele.getSelected()==false){
+      System.out.println("here we go2");
+      for (Bien ele2:agence.liste_des_biens){
+       if (ele2.getSelected()==true){
+        System.out.println("here we go4");
+        ele2.setSelected(false);
+        b.setStyle(IDLE_BUTTON_STYLE);
+
+       }
+      }
+      ele.setSelected(true);
+     // b.setStyle(HOVERED_BUTTON_STYLE);
+      gotouslesbien();
+     }
+    }
     @FXML
     public void gotouslesbien() throws Exception {
         maini();
@@ -357,10 +374,6 @@ public class Controller3 {
     // for(int i =0; i <99 ; i++){
              //   System.out.println("NUMERO DU BIEN : "+cpt);
               //  ele.afficher();
-              if (f==0){
-               f =1;
-               ele.setSelected(true);
-              }
                System.out.println("---------------------------------------");
 
               //  cpt++;
@@ -400,6 +413,26 @@ public class Controller3 {
                 b.setStyle("-fx-background-color: #CDCDCD;");
                 b.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
                 b.setOnMouseExited(e -> b.setStyle(IDLE_BUTTON_STYLE));
+                b.setOnMouseClicked(e -> {
+                 try {
+                  lected(ele,b);
+                 } catch (Exception ex) {
+                  //ex.printStackTrace();
+                 }
+                });
+
+                if (ele.getSelected()==true){
+                 details = new Pane();
+                 b.setStyle(HOVERED_BUTTON_STYLE);
+                }
+
+                if (f==0){
+                 f =1;
+                 ele.setSelected(true);
+                 b.setStyle(IDLE_BUTTON_STYLE);
+                }
+
+
 
                 /************************************************** Listes des biens Pane ***************************************************/
 

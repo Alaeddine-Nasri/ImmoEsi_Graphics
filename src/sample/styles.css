@@ -17,3 +17,11 @@
 #inputsignup{
         -fx-background-radius: 18px, 18px, 18px, 18px;
 }
+#menubtn {
+    -fx-background-color :  #7F59B0;
+}
+#menubtn :hover{
+    -fx-background-color :  #7F59B0;
+    -fx-text-fill: #FCB326;
+    -fx-font-weight : 900;
+}

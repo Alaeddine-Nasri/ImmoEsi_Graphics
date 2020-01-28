@@ -236,7 +236,7 @@ public class Main {
                                     System.out.println("bien supprimé : bien1\n*** ");
                                     bien1.afficher();
                                     System.out.println("\n------------------------------------\n");
-                                    agence.supprimer_bien(admin, bien1);
+                                    agence.supprimer_bien(bien1);
                                     /* affichage de la liste des biens apres suppression */
                                     System.out.println("Liste des biens après suppression\n\n");
                                     agence.afficher_liste_des_bien();

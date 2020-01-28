@@ -265,7 +265,7 @@ public class ImmoESI {
         boolean removed = liste_des_biens.remove(archive);
     }
 
-    public void supprimer_bien(Administrateur admin, Bien supp) {
+    public void supprimer_bien(Bien supp) {
 
         this.liste_des_biens.remove(supp);
         supp.proprietaire.liste_proprietees.remove(supp);

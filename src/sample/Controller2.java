@@ -26,6 +26,7 @@ public class Controller2 {
     //    this.secondstage= stage;
     }
 
+
     public void gosimpleuser() throws Exception {
         Stage stage = Main.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("simpleuser.fxml"));

@@ -1,6 +1,7 @@
 package sample;
 
 import Noyaux.*;
+import java.util.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,6 +33,45 @@ public class Controller3 {
     private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #FCB326;";
     private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #CDCDCD;";
     private static final String HOVERED_2BUTTON_STYLE = "-fx-background-color: #E84C89;";
+    TreeSet<Proprietaire> proprietaires = new TreeSet<Proprietaire>();
+
+
+ Administrateur admin = new Administrateur("admin1", "motdepasse1");
+ Administrateur admin2 = new Administrateur("admine2", "motdepasse2");
+
+
+
+ Proprietaire prop1 = new Proprietaire("AMMALI", "+213*********", "Mouna", "im_ammali@esi.dz", "Lido Mohammadia");
+ Proprietaire prop2 = new Proprietaire("NASRI", "+213*********", "Ala Edine", "ia_nasri@esi.dz", "Batna");
+ Proprietaire prop3 = new Proprietaire("DJEFFAL", "+213*********", "Belkis", "ib_djeffal@esi.dz", "El Bordj");
+ Proprietaire prop4 = new Proprietaire("BELGUENBOUR", "+213*********", "Walid", "iw_belguenbour@esi.dz", "Dely Brahim");
+
+
+ Date date = new Date();
+ Date date1 = new Date("2019/2/2");
+ Date date2 = new Date("2018/5/2");
+ Date date3 = new Date("2007/9/1");
+ Date date4 = new Date("2006/1/11");
+ Date date5 = new Date("2005/3/13");
+ Date date6 = new Date("2004/2/12");
+ Date date7 = new Date("1990/2/2");
+ Wilaya wilaya2 = Enum.valueOf(Wilaya.class, "wilaya2");
+ Wilaya wilaya3 = Enum.valueOf(Wilaya.class, "wilaya3");
+ Wilaya wilaya1 = Enum.valueOf(Wilaya.class, "wilaya1");
+
+ TypeDeTransaction vente = Enum.valueOf(TypeDeTransaction.class, "vente");
+ TypeDeTransaction location = Enum.valueOf(TypeDeTransaction.class, "location");
+ TypeDeTransaction echange = Enum.valueOf(TypeDeTransaction.class, "echange");
+ Bien bien1 = new Appartement("Lido Mohammadia", wilaya2, 120, prop2, vente, 4000000, false, "", date, "", 4, false, 1, false);
+ Bien bien2 = new Maison("Birkhadem ", wilaya3, 200, prop1, vente, 10000000, false, "", date1, "", 0, false, true, true, 200);
+ Bien bien3 = new Terrain("Cheraga", wilaya1, 500, prop1, vente, 20000000, false, "", date2, "", 3, "");
+ Bien bien4 = new Appartement("Bab ezzouar", wilaya3, 100, prop2, location, 40000, false, "", date7, "", 3, false, 1, false);
+ Bien bien5 = new Maison("Belfort", wilaya2, 160, prop3, location, 150000, false, "", date3, "", 0, false, false, true, 160);
+ Bien bien6 = new Appartement("Dely Brahim", wilaya3, 50, prop2, location, 600000, false, "", date4, "", 1, false, 6, false, false, true);
+ Bien bien7 = new Terrain("Kharoubier", wilaya1, 650, prop1, echange, 18000000, false, "", date5, "", 1, "");
+ Bien bien8 = new Maison("Belf", wilaya2, 200, prop2, echange, 14000000, false, "", date6, "", 0, false, 0, true, false, false, 200);
+
+
 
 
 
@@ -45,21 +85,14 @@ public class Controller3 {
 
  public void maini() throws SuperficieHabitableException, BienExistantException {
 
-  TreeSet<Proprietaire> proprietaires = new TreeSet<Proprietaire>();
+
 
   /*CREATION D'ADMINISTRATEUR*/
-  Administrateur admin = new Administrateur("admin1", "motdepasse1");
-  Administrateur admin2 = new Administrateur("admine2", "motdepasse2");
+
   agence.administrateurs.add(admin);
   agence.administrateurs.add(admin2);
   /*CREATION D'ADMINISTRATEUR*/
-
-
   /*CREATION DES PROPRIETAIRES*/
-  Proprietaire prop1 = new Proprietaire("AMMALI", "+213*********", "Mouna", "im_ammali@esi.dz", "Lido Mohammadia");
-  Proprietaire prop2 = new Proprietaire("NASRI", "+213*********", "Ala Edine", "ia_nasri@esi.dz", "Batna");
-  Proprietaire prop3 = new Proprietaire("DJEFFAL", "+213*********", "Belkis", "ib_djeffal@esi.dz", "El Bordj");
-  Proprietaire prop4 = new Proprietaire("BELGUENBOUR", "+213*********", "Walid", "iw_belguenbour@esi.dz", "Dely Brahim");
   proprietaires.add(prop1);
   proprietaires.add(prop2);
   proprietaires.add(prop3);
@@ -68,30 +101,6 @@ public class Controller3 {
   /*CREATION DES PROPRIETAIRES*/
 
   /*CREATION DES BIENS*/
-  Date date = new Date();
-  Date date1 = new Date("2019/2/2");
-  Date date2 = new Date("2018/5/2");
-  Date date3 = new Date("2007/9/1");
-  Date date4 = new Date("2006/1/11");
-  Date date5 = new Date("2005/3/13");
-  Date date6 = new Date("2004/2/12");
-  Date date7 = new Date("1990/2/2");
-  Wilaya wilaya2 = Enum.valueOf(Wilaya.class, "wilaya2");
-  Wilaya wilaya3 = Enum.valueOf(Wilaya.class, "wilaya3");
-  Wilaya wilaya1 = Enum.valueOf(Wilaya.class, "wilaya1");
-
-  TypeDeTransaction vente = Enum.valueOf(TypeDeTransaction.class, "vente");
-  TypeDeTransaction location = Enum.valueOf(TypeDeTransaction.class, "location");
-  TypeDeTransaction echange = Enum.valueOf(TypeDeTransaction.class, "echange");
-
-  Bien bien1 = new Appartement("Lido Mohammadia", wilaya2, 120, prop2, vente, 4000000, false, "", date, "", 4, false, 1, false);
-  Bien bien2 = new Maison("Birkhadem ", wilaya3, 200, prop1, vente, 10000000, false, "", date1, "", 0, false, true, true, 200);
-  Bien bien3 = new Terrain("Cheraga", wilaya1, 500, prop1, vente, 20000000, false, "", date2, "", 3, "");
-  Bien bien4 = new Appartement("Bab ezzouar", wilaya3, 100, prop2, location, 40000, false, "", date7, "", 3, false, 1, false);
-  Bien bien5 = new Maison("Belfort", wilaya2, 160, prop3, location, 150000, false, "", date3, "", 0, false, false, true, 160);
-  Bien bien6 = new Appartement("Dely Brahim", wilaya3, 50, prop2, location, 600000, false, "", date4, "", 1, false, 6, false, false, true);
-  Bien bien7 = new Terrain("Kharoubier", wilaya1, 650, prop1, echange, 18000000, false, "", date5, "", 1, "");
-  Bien bien8 = new Maison("Belf", wilaya2, 200, prop2, echange, 14000000, false, "", date6, "", 0, false, 0, true, false, false, 200);
   agence.ajouterBien(admin, bien1);
   agence.ajouterBien(admin, bien2);
   agence.ajouterBien(admin, bien3);
@@ -109,7 +118,7 @@ public class Controller3 {
   agence.envoyerMessage("Ce bien est il negociable ? ","user1@gmail.com","nom3");
   agence.envoyerMessage("Pouvons nous passer en agence pour ce bien ! ","user1@gmail.com","nom4");
   /*GESTION DES MESSAGES*/
-  System.out.println("--------------------------------------------------------------------------------------------\n");
+ /* System.out.println("--------------------------------------------------------------------------------------------\n");
   System.out.println("                        Ecole Nationale Supérieure d'Informatique               ");
   System.out.println("                                    AMMALI  -   NASRI");
   System.out.println("                                   Mouna    -   Ala Edine");
@@ -140,7 +149,7 @@ public class Controller3 {
        case 1:
         System.out.println("************************    /Affichage des biens d'un proprietaire/    ************************************************\n\n\n\n");
 
-        /*GESTION BIENS DES PROPRIETAIRES*/
+        //GESTION BIENS DES PROPRIETAIRES
         System.out.println("Biens du proprietaire /Prop1/");
         prop1.afficher_biens_proprietaires();
         System.out.println("\nBien du proprietaire /Prop2/");
@@ -251,7 +260,7 @@ public class Controller3 {
 
         case 1:
          System.out.println("************************    /Ajout d'un bien/    ************************************************\n\n\n\n");
-         /* ajout d'un bien */
+         // ajout d'un bien
          try {
           agence.ajouterBien(admin);
          } catch (SurfaceNulleException e) {
@@ -269,8 +278,8 @@ public class Controller3 {
          System.out.println("bien supprimé : bien1\n*** ");
          bien1.afficher();
          System.out.println("\n------------------------------------\n");
-         agence.supprimer_bien(admin, bien1);
-         /* affichage de la liste des biens apres suppression */
+         agence.supprimer_bien(bien1);
+         // affichage de la liste des biens apres suppression
          System.out.println("Liste des biens après suppression\n\n");
          agence.afficher_liste_des_bien();
          System.out.println("Liste des biens des proprietaires après suppression \n\n");
@@ -288,19 +297,19 @@ public class Controller3 {
          break;
         case 4:
          System.out.println("************************    /Modification d'un bien/    ************************************************\n\n");
-         /*GESTION DES MODFICATIONS*/
+         //GESTION DES MODFICATIONS
          System.out.println("bien modifié : bien5 ");
          Bien bien = agence.choisirBien(5);
          agence.modifierBien(admin, bien);
          agence.afficher_liste_des_bien();
-         /*GESTION DES MODFICATIONS*/
+         //GESTION DES MODFICATIONS
          System.out.println("************************    /Calcul du prix apres modification/    ************************************************\n\n");
          System.out.println("$$$$$$$$$$$$$$$$\t    prix final :      " + bien.calculerprix());
 
          break;
         case 5:
          System.out.println("********************    /Affichage des messages recues/    ******************************************\n\n");
-         /*Afficher la liste des messages*/
+         //Afficher la liste des messages
          agence.afficherMessages(admin);
          break;
         case 6:
@@ -316,7 +325,7 @@ public class Controller3 {
      break;
 
    }
-  } while ((choix != 3));
+  } while ((choix != 3));*/
  }
 
 
@@ -564,25 +573,25 @@ public class Controller3 {
     }
 
 
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
- /************************************************** Supprimer Bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
+ /************************************************** Affichage des bien ***************************************************/
 
 
  public void lected(Bien ele,Button b) throws Exception {
-  System.out.println("here we go");
   if(ele.getSelected()==false){
    System.out.println("here we go2");
+   b.setStyle(HOVERED_BUTTON_STYLE);
    for (Bien ele2:agence.liste_des_biens){
     if (ele2.getSelected()==true){
      System.out.println("here we go4");
      ele2.setSelected(false);
-     b.setStyle(IDLE_BUTTON_STYLE);
+     //b.setStyle(IDLE_BUTTON_STYLE);
     }
    }
    ele.setSelected(true);
@@ -590,33 +599,17 @@ public class Controller3 {
    gotouslesbien();
   }
  }
+
  @FXML
+
  public void gotouslesbien() throws Exception {
   maini();
-
   Stage stage = Main.getPrimaryStage();
 
-  //  int cpt=1;
-  //  for(int i = 1; i <10;i++){
-  //
-
-  //   System.out.println("NUMERO DU BIEN : ");
-  //   System.out.println("---------------------------------------");
-
-  // }
-
-  //  if(agence.liste_des_biens != null){
-  //  System.out.println("vide ya jdk");
-  //}
-  int f=0,cpt = 1;
+  int cpt = 1;
   Pane details = new Pane();
   for(Bien ele:agence.liste_des_biens){
-   // for(int i =0; i <99 ; i++){
-   //   System.out.println("NUMERO DU BIEN : "+cpt);
-   //  ele.afficher();
-   System.out.println("---------------------------------------");
 
-   //  cpt++;
    /************************************************** Declarations ***************************************************/
 
    Button b = new Button();
@@ -625,6 +618,7 @@ public class Controller3 {
    AnchorPane banchor = new AnchorPane();
    ScrollPane scrollPane = new ScrollPane();
    Text title = new Text();
+
 
 
    Text bienName = new Text(); Text bienAdresse = new Text(); Text bienProp = new Text();
@@ -651,11 +645,14 @@ public class Controller3 {
    b.setPrefWidth(610.0);
    b.setId("bienbtn");
    b.setStyle("-fx-background-color: #CDCDCD;");
-   b.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
-   b.setOnMouseExited(e -> b.setStyle(IDLE_BUTTON_STYLE));
+
+    b.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+    b.setOnMouseExited(e -> b.setStyle(IDLE_BUTTON_STYLE));
+ //   b.setOnMouseClicked(e -> b.setStyle(HOVERED_BUTTON_STYLE));
    b.setOnMouseClicked(e -> {
     try {
      lected(ele,b);
+
     } catch (Exception ex) {
      //ex.printStackTrace();
     }
@@ -663,14 +660,16 @@ public class Controller3 {
 
    if (ele.getSelected()==true){
     details = new Pane();
-    b.setStyle(HOVERED_BUTTON_STYLE);
+    //screen = new AnchorPane();
+    //b.setStyle(HOVERED_BUTTON_STYLE);
    }
 
-   if (f==0){
-    f =1;
-    ele.setSelected(true);
-    b.setStyle(IDLE_BUTTON_STYLE);
-   }
+
+ //  if (f==0){
+  //  f =1;
+  //  ele.setSelected(true);
+   // b.setStyle(IDLE_BUTTON_STYLE);
+   //}
 
 
 
@@ -703,7 +702,7 @@ public class Controller3 {
    String numbien ;
    numbien = "Bien"+ String.valueOf(cpt)+" :";
    cpt++;
-   System.out.println(numbien);
+ //  System.out.println(numbien);
    bienName.setText(numbien);
    bienName.setFill(Paint.valueOf("#000000"));
    bienName.setFont(Font.font("System", FontWeight.BOLD, 23));
@@ -836,7 +835,7 @@ public class Controller3 {
    bienPrix1.setFont(Font.font("System", FontWeight.BOLD, 25));
 
    /************************************************** Details Label ***************************************************/
-   System.out.println("Valur of selected is "+String.valueOf(ele.getSelected()));
+  // System.out.println("Valur of selected is "+String.valueOf(ele.getSelected()));
    if (ele.getSelected() == true) {
     bienAdresse3.setText(ele.getAdresse());
     bienAdresse3.setLayoutX(105);
@@ -973,7 +972,10 @@ public class Controller3 {
  /************************************************** Supprimer Bien ***************************************************/
  /************************************************** Supprimer Bien ***************************************************/
 
-
+public void confirmsupp() throws Exception {
+ agence.supprimer_bien(bien1);
+ gosuppbien();
+}
 
 
  public void gosuppbien() throws Exception {
@@ -1544,13 +1546,30 @@ public class Controller3 {
  /************************************************** Propritaire Bien  ***************************************************/
  /************************************************** Propritaire Bien  ***************************************************/
 
+ public void gprop() throws Exception {
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("choisir_un_prop.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+  //    this.secondstage= stage;
+ }
 
  public void propritairebien() throws Exception {
   biens = agence.getListe_des_biens();
   Stage stage = Main.getPrimaryStage();
 
+  Proprietaire prop1 = new Proprietaire("Alaeddine", "+213*********", "Mouna", "im_ammali@esi.dz", "Lido Mohammadia");
+  Proprietaire prop2= new Proprietaire("NASRI","+213*********","Ala Edine","ia_nasri@esi.dz","Batna");
+  Proprietaire prop3= new Proprietaire("DJEFFAL","+213*********","Belkis","ib_djeffal@esi.dz","El Bordj");
+  Proprietaire prop4= new Proprietaire("BELGUENBOUR","+213*********","Walid","iw_belguenbour@esi.dz","Dely Brahim");
+  proprietaires.add(prop1);
+  proprietaires.add(prop2);
+  proprietaires.add(prop3);
+  proprietaires.add(prop4);
+  agence.setProprietaires(proprietaires);
   //  int cpt=1;
-   for(Bien ele:agence.liste_des_biens){
+   for(Bien ele:prop1.getListe_proprietees()){
    //   System.out.println("NUMERO DU BIEN : "+cpt);
    //  ele.afficher();
    System.out.println("---------------------------------------");

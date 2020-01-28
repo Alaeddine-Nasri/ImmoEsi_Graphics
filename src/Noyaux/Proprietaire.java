@@ -66,4 +66,8 @@ public class Proprietaire implements Comparable<Proprietaire> {
     public String getPrenom() {
         return prenom;
     }
+
+    public TreeSet<Bien> getListe_proprietees() {
+        return liste_proprietees;
+    }
 }

@@ -25,6 +25,16 @@ public class Controller2 {
         stage.show();
     //    this.secondstage= stage;
     }
+
+    public void gosimpleuser() throws Exception {
+        Stage stage = Main.getPrimaryStage();
+        Parent root = FXMLLoader.load(getClass().getResource("simpleuser.fxml"));
+        stage.setTitle("ImmoEsi");
+        stage.setScene(new Scene(root, 900, 500));
+        stage.show();
+        //    this.secondstage= stage;
+    }
+
     public void goadmin_in() throws Exception {
         if(username.getText().equals( "admin") && password.getText().equals( "admin") ){
         Stage stage = Main.getPrimaryStage();

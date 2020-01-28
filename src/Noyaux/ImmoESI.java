@@ -276,8 +276,8 @@ public class ImmoESI {
         o.proprietaire.liste_proprietees.add(o);
     }
 
-    public void envoyerMessage(Bien o, String message) {
-        Messages nouveau = new Messages(o, message);
+    public void envoyerMessage(String message,String email,String nom) {
+        Messages nouveau = new Messages(message,email,nom);
         liste_messages.add(nouveau);
     }
 

@@ -70,11 +70,11 @@ public class Main {
         /*CREATION DES BIENS*/
 
         /*GESTION DES MESSAGES*/
-        agence.envoyerMessage(bien1, "Je suis interessé par ce bien");
-        agence.envoyerMessage(bien2, "Pouvons nous visiter ce bien");
-        agence.envoyerMessage(bien3, "Ce bien est il encore disponible ? ");
-        agence.envoyerMessage(bien4,"Ce bien est il negociable ? ");
-        agence.envoyerMessage(bien7,"Pouvons nous passer en agence pour ce bien ! ");
+        agence.envoyerMessage("Je suis interessé par ce bien","user1@gmail.com","nom1");
+        agence.envoyerMessage("Pouvons nous visiter ce bien","user1@gmail.com","nom3");
+        agence.envoyerMessage( "Ce bien est il encore disponible ? ","user1@gmail.com","nom12");
+        agence.envoyerMessage("Ce bien est il negociable ? ","user1@gmail.com","nom3");
+        agence.envoyerMessage("Pouvons nous passer en agence pour ce bien ! ","user1@gmail.com","nom4");
         /*GESTION DES MESSAGES*/
         System.out.println("--------------------------------------------------------------------------------------------\n");
         System.out.println("                        Ecole Nationale Supérieure d'Informatique               ");

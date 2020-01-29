@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class ImmoESI implements Serializable {
     public static TreeSet<Bien> liste_des_biens =new TreeSet<Bien>(); //liste des biens de l'agence
+    public static ArrayList<Bien> liste_rech =new ArrayList<>();//liste des biens de l'agence
+    public static ArrayList<Bien> liste_rech2 =new ArrayList<>();
     public static TreeSet<Bien> biens_archives =new TreeSet<Bien>(); //liste des biens archivés
     public static LinkedList<Messages>  liste_messages=new LinkedList<Messages>();
     public static LinkedList<Administrateur> administrateurs=new LinkedList<Administrateur>();

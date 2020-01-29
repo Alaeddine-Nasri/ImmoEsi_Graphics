@@ -47,7 +47,7 @@
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="58.0" layoutY="340.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
+            <Text fill="WHITE" layoutX="83.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechreche">
                <font>
                   <Font size="15.0" />
                </font>
@@ -133,6 +133,7 @@
             <Button fx:id="propbien" layoutX="363.0" layoutY="357.0" mnemonicParsing="false" onAction="#propritairebien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
             <Button fx:id="propbien1" layoutX="363.0" layoutY="387.0" mnemonicParsing="false" onAction="#goafficherlesmessages" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
             <Button fx:id="ArchiverBien1" layoutX="43.0" layoutY="356.0" mnemonicParsing="false" onAction="#bienarchive" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ArchiverBien11" layoutX="43.0" layoutY="326.0" mnemonicParsing="false" onAction="#gorf" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
          </children>
       </Pane>
       <ImageView fitHeight="90.0" fitWidth="91.0" layoutX="736.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">

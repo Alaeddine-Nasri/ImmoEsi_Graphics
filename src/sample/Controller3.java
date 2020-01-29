@@ -2394,6 +2394,16 @@ public void suppdetails(Bien ele,Button b) throws Exception {
   chemsou.getItems().add("Vente");
   chemsou.getItems().add("Location");
   chemsou.getItems().add("Echange");
+  wil.getItems().add("wilaya1");
+  wil.getItems().add("wilaya2");
+  wil.getItems().add("wilaya3");
+  transaction.getItems().add("vente");
+  transaction.getItems().add("location");
+  transaction.getItems().add("echange");
+  typebien.getItems().add("maison");
+  typebien.getItems().add("appartement");
+  typebien.getItems().add("terrain");
+
 
  }
  /***************************************************Bien Prop *****************************************************/
@@ -2413,12 +2423,132 @@ public void suppdetails(Bien ele,Button b) throws Exception {
  /************************************************** Recherche Bien ***************************************************/
  /************************************************** Recherche Bien ***************************************************/
  /************************************************** Recherche Bien ***************************************************/
+@FXML
+TextField max,min,surface;
+@FXML
+ private ChoiceBox<String> transaction = new ChoiceBox<>();
+@FXML
+ private ChoiceBox<String> wil = new ChoiceBox<>();
+@FXML
+ private ChoiceBox<String> typebien = new ChoiceBox<>();
+
+ @FXML
+ public void gorf() throws Exception {
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("Filtre_rech.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+  //    this.secondstage= stage;
+ }
+
+
+
+ //Filtter f = new Filtter();
+ public int wilaya;
+ public Float prix;
+ public float superficie;
+
+
+
+
+ public ArrayList<Bien> recherche_filtre(ArrayList<Bien> list1, ArrayList<Bien> list2,int k){
+  // list1.addAll(ImmoESI.liste_des_biens);
+   //list2.addAll(ImmoESI.liste_des_biens);
+   Scanner sc = new Scanner(System.in);
+
+   /***********wilaya*****************/
+ /*  if (wil.getValue()=="wilaya1"){//wilaya
+    wilaya = 49;} else if(wil.getValue()=="wilaya2") {
+   wilaya = 50;} else if(wil.getValue()=="wilaya3"){
+    wilaya = 51;}
+    for (Bien ele1:list1){ // wilaya
+     if (ele1.getWilaya().matricule != wilaya) {list2.remove(ele1);}
+    }*/
+/**************Type de bien****************/
+  if (typebien.getValue() == "maison" ) {
+   for (Bien ele1 : list1) {
+    if ((ele1 instanceof Appartement) || (ele1 instanceof Terrain)) {
+     System.out.println("zdna1");
+     System.out.println(ele1.getClass().getName());
+     list2.remove(ele1);}
+   }
+  }
+  else if (typebien.getValue()=="appartement") {
+   for (Bien ele1 : list1) {
+    if ((ele1 instanceof Maison) || (ele1 instanceof Terrain) ) {list2.remove(ele1);}
+   }
+  }
+  else if (typebien.getValue()=="terrain") {
+   for (Bien ele1 : list1) {
+    if ((ele1 instanceof Appartement) || (ele1 instanceof Maison) ) {list2.remove(ele1);}
+   }
+  }
+
+/******************* type de transaction ********************************/
+  /*if (transaction.getValue()=="vente"){
+
+   for (Bien ele1 : list1) {
+
+    if (ele1.getTransaction() != TypeDeTransaction.vente) { list2.remove(ele1);}
+   }
+  }
+  else if (transaction.getValue() == "location") {
+   for (Bien ele1 : list1) {
+    if (ele1.getTransaction() != TypeDeTransaction.location) { list2.remove(ele1); }
+   }
+  } else if (transaction.getValue() =="echange") {
+   for (Bien ele1 : list1) {
+    if (ele1.getTransaction() != TypeDeTransaction.echange) { list2.remove(ele1); }
+   }
+  }*/
+
+   // prix max
+ /*   if(max.getText()!="") {
+    // prix = Float.parseFloat(max.getText());
+     for (Bien ele1 : list1) { //prix max
+      if (ele1.getPrix() > prix) {
+       list2.remove(ele1);
+      }
+     }
+    }*/
+      // prix min
+/*  if(min.getText()!="") {
+   prix = Float.parseFloat(min.getText());
+   for (Bien ele1 : list1) { //prix min
+    if (ele1.getPrix() <= prix) {
+     list2.remove(ele1);
+    }
+   }
+  }*/
+     // type de transaction
+
+
+
+     // type de Bien
+
+
+
+
+     // surface min
+ /* if(max.getText()!="") {
+  // superficie = Float.valueOf(surface.getText());
+   for (Bien ele1 : list1) { //surface min
+    if (ele1.getSurface() < superficie) {
+     list2.remove(ele1);
+    }
+   }
+  }*/
+   return list2;
+  }
+
+
 
  public void rerechrecheaff(Bien ele,Button b) throws Exception {
   if(ele.getSelected()==false){
    System.out.println("here we go2");
    //b.setStyle(HOVERED_BUTTON_STYLE);
-   for (Bien ele2:ImmoESI.liste_des_biens){
+   for (Bien ele2:ImmoESI.liste_rech2){
     if (ele2.getSelected()==true){
      System.out.println("here we go4");
      ele2.setSelected(false);
@@ -2440,7 +2570,9 @@ public void suppdetails(Bien ele,Button b) throws Exception {
   int cpt = 1;
   Pane details = new Pane();
   bienbox = new VBox();
-  for(Bien ele:ImmoESI.liste_des_biens){
+  ImmoESI.liste_rech.addAll(ImmoESI.liste_des_biens);
+  ImmoESI.liste_rech2.addAll(ImmoESI.liste_des_biens);
+  for(Bien ele:recherche_filtre(ImmoESI.liste_rech,ImmoESI.liste_rech2,1)){
    System.out.println("hna 3lh?");
    /************************************************** Declarations ***************************************************/
 

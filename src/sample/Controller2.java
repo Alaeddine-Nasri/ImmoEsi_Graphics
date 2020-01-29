@@ -1,5 +1,6 @@
 package sample;
-import Noyaux.*;
+import javafx.scene.control.ChoiceBox;
+import noy.*;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +26,8 @@ public class Controller2 {
         stage.show();
     //    this.secondstage= stage;
     }
+
+
 
 
     public void gosimpleuser() throws Exception {

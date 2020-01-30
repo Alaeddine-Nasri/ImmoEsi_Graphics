@@ -2396,6 +2396,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
   chemsou.getItems().add("Vente");
   chemsou.getItems().add("Location");
   chemsou.getItems().add("Echange");
+  wil.getItems().add("tous les wilaya");
   wil.getItems().add("wilaya1");
   wil.getItems().add("wilaya2");
   wil.getItems().add("wilaya3");
@@ -2405,16 +2406,14 @@ public void suppdetails(Bien ele,Button b) throws Exception {
   typebien.getItems().add("maison");
   typebien.getItems().add("appartement");
   typebien.getItems().add("terrain");
+  min.setText("0");
+  max.setText("1000000000000000");
+  surface.setText("0");
+  wil.setValue("");
 
 
  }
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
+
 
 
  /************************************************** Recherche Bien ***************************************************/
@@ -2426,7 +2425,9 @@ public void suppdetails(Bien ele,Button b) throws Exception {
  /************************************************** Recherche Bien ***************************************************/
  /************************************************** Recherche Bien ***************************************************/
 @FXML
-TextField max,min,surface;
+TextField max = new TextField();
+TextField min= new TextField();
+TextField surface = new TextField();
 @FXML
  private ChoiceBox<String> transaction = new ChoiceBox<>();
 @FXML
@@ -2464,13 +2465,14 @@ TextField max,min,surface;
    wilaya = 49;} else if(wil.getValue()=="wilaya2") {
    wilaya = 50;} else if(wil.getValue()=="wilaya3") {
    wilaya = 51;}
-  for (Bien ele1:list1){ // wilaya
-   if (ele1.getWilaya().matricule != wilaya) {
-    System.out.println("non wilaya");
-    list2.remove(ele1);}
+  if(wil.getValue()!="tous les wilaya") {
+   for (Bien ele1 : list1) { // wilaya
+    if (ele1.getWilaya().matricule != wilaya) {
+     System.out.println("non wilaya");
+     list2.remove(ele1);
+    }
+   }
   }
-/**************Type de bien****************/
-
 
 /******************* type de transaction ********************************/
   if (transaction.getValue()=="vente"){
@@ -2489,6 +2491,8 @@ TextField max,min,surface;
    }
   }
 
+
+/**************Type de bien****************/
   if (typebien.getValue() == "maison" ) {
    for (Bien ele1 : list1) {
     if ((ele1 instanceof Appartement)||(ele1 instanceof Terrain)) {
@@ -2509,43 +2513,32 @@ TextField max,min,surface;
   }
   /***************** walou walou ***********************/
 
-
    // prix max
- /*   if(max.getText()!="") {
-    // prix = Float.parseFloat(max.getText());
+
+     prix = Float.parseFloat(max.getText());
      for (Bien ele1 : list1) { //prix max
       if (ele1.getPrix() > prix) {
        list2.remove(ele1);
       }
      }
-    }*/
-      // prix min
-/*  if(min.getText()!="") {
+
+    //   prix min
+
    prix = Float.parseFloat(min.getText());
    for (Bien ele1 : list1) { //prix min
     if (ele1.getPrix() <= prix) {
      list2.remove(ele1);
     }
    }
-  }*/
-     // type de transaction
-
-
-
-     // type de Bien
-
-
-
 
      // surface min
- /* if(max.getText()!="") {
-  // superficie = Float.valueOf(surface.getText());
+
+  superficie = Float.valueOf(surface.getText());
    for (Bien ele1 : list1) { //surface min
     if (ele1.getSurface() < superficie) {
      list2.remove(ele1);
     }
    }
-  }*/
    return list2;
   }
 
@@ -2933,7 +2926,13 @@ TextField max,min,surface;
 
   //    this.secondstage= stage;
  }
-
+/***************************************************Bien Prop *****************************************************/
+ /***************************************************Bien Prop *****************************************************/
+ /***************************************************Bien Prop *****************************************************/
+ /***************************************************Bien Prop *****************************************************/
+ /***************************************************Bien Prop *****************************************************/
+ /***************************************************Bien Prop *****************************************************/
+ /***************************************************Bien Prop *****************************************************/
 
 
 

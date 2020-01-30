@@ -34,9 +34,6 @@
                     </font>
                 </Text>
                 <TextField id="inputsignup" fx:id="max" layoutX="160.0" layoutY="265.0" prefHeight="40.0" prefWidth="320.0" promptText="Prix Max..." stylesheets="@styles.css">
-                    <font>
-                        <Font size="17.0" />
-                    </font>
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -64,9 +61,6 @@
                </font>
             </Text>
             <TextField id="inputsignup" fx:id="min" layoutX="160.0" layoutY="331.0" prefHeight="40.0" prefWidth="320.0" promptText="Prix Min..." stylesheets="@styles.css">
-               <font>
-                  <Font size="17.0" />
-               </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -77,9 +71,6 @@
                </font>
             </Text>
             <TextField id="inputsignup" fx:id="surface" layoutX="160.0" layoutY="396.0" prefHeight="40.0" prefWidth="320.0" promptText="Surface Min..." stylesheets="@styles.css">
-               <font>
-                  <Font size="17.0" />
-               </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

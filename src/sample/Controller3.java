@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import noy.*;
@@ -1593,15 +1594,6 @@ public void suppdetails(Bien ele,Button b) throws Exception {
 @FXML
  private ChoiceBox<String> chemsou = new ChoiceBox<>();
 
- public void goajouterbien() throws Exception {
-  Stage stage = Main.getPrimaryStage();
-  Parent root = FXMLLoader.load(getClass().getResource("AjouterBien.fxml"));
-  stage.setTitle("ImmoEsi");
-  stage.setScene(new Scene(root, 900, 500));
-  stage.show();
-
-  //    this.secondstage= stage;
- }
 
 
  /************************************************** Archiver Bien ***************************************************/
@@ -2927,12 +2919,214 @@ TextField surface = new TextField();
   //    this.secondstage= stage;
  }
 /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
- /***************************************************Bien Prop *****************************************************/
+/***************************************************Bien Prop *****************************************************/
+/***************************************************Bien Prop *****************************************************/
+/***************************************************Bien Prop *****************************************************/
+/***************************************************Bien Prop *****************************************************/
+/***************************************************Bien Prop *****************************************************/
+/***************************************************Bien Prop *****************************************************/
+
+
+@FXML
+public void goajou() throws Exception {
+ Stage stage = Main.getPrimaryStage();
+ Parent root = FXMLLoader.load(getClass().getResource("AjouterBien.fxml"));
+ stage.setTitle("ImmoEsi");
+ stage.setScene(new Scene(root, 900, 500));
+ stage.show();
+ //    this.secondstage= stage;
+}
+
+
+@FXML
+private TextField desc;
+
+ @FXML
+ private TextField photos;
+
+ @FXML
+ private TextField nbe;
+
+ @FXML
+ private TextField nbp;
+
+ @FXML
+ private TextField meublee;
+
+ @FXML
+ private TextField jardin;
+
+ @FXML
+ private TextField piscine;
+
+ @FXML
+ private TextField garage;
+
+ @FXML
+ private TextField adr;
+
+ @FXML
+ private TextField wila;
+
+ @FXML
+ private TextField supr;
+
+ @FXML
+ private TextField pri;
+
+ @FXML
+ private TextField negos;
+ @FXML
+ private TextField surh;
+
+
+ public Bien AjouterMaison(Proprietaire proprietaire, TypeDeTransaction transaction) throws SuperficieHabitableException,SurfaceNulleException{
+  Scanner sc=new Scanner(System.in);
+
+   String adresse = adr.getText();
+
+  Wilaya wilaya =Enum.valueOf(Wilaya.class, wila.getText().toLowerCase());
+  //Wilaya wilaya = Wilaya.wilaya1;
+  float surface=Float.parseFloat(supr.getText());
+  if(surface< 0) throw  new SurfaceNulleException();
+  float prix=Float.parseFloat(pri.getText());
+
+  String nego=negos.getText();
+  boolean negociable;
+  negociable= nego.equalsIgnoreCase("oui");
+  String descriptif=desc.getText();
+  String photo=photos.getText(); //sc.nextLine();
+  LocalDate date = LocalDate.now();
+  int nbr_etages= Integer.parseInt(nbe.getText());
+  int nbr_pieces=Integer.parseInt(nbp.getText());
+  String jar=meublee.getText(); //sc.nextLine();
+  boolean meuble;
+  meuble= jar.equalsIgnoreCase("oui"); //sc.nextLine();
+  jar= jardin.getText(); //sc.nextLine();
+  boolean jardin;
+  jardin= jar.equalsIgnoreCase("oui"); //sc.nextLine();
+  String pis=piscine.getText();
+  boolean piscine;
+  piscine= jar.equalsIgnoreCase("oui");
+  String gar=garage.getText();
+  boolean garage;
+  garage= jar.equalsIgnoreCase("oui");
+  float surface_habitable=Float.parseFloat(surh.getText());
+  //Creation de l'objet
+  if(surface < surface_habitable) throw new SuperficieHabitableException();
+  Bien nouveau= null;
+  nouveau = new Maison(adresse,wilaya,surface,proprietaire,transaction,prix,negociable,descriptif,date,photo,nbr_pieces,meuble,nbr_etages,garage,jardin,piscine,surface_habitable);
+
+  return  nouveau;
+ }
+ @FXML
+ private TextField nomprop;
+
+ @FXML
+ private TextField proprop;
+
+ @FXML
+ private TextField adrprop;
+
+ @FXML
+ private TextField emailprop;
+
+ @FXML
+ public void goajouterbien() throws Exception {
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("AjouterBien.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+  //    this.secondstage= stage;
+ }
+
+
+
+  public void ajouterBienn()  throws SuperficieHabitableException,SurfaceNulleException,BienExistantException{
+  Scanner sc = new Scanner(System.in);
+  Bien nouveau = null;
+
+
+  String type_bien = oussama.getValue();
+
+  TypeDeTransaction transaction =Enum.valueOf(TypeDeTransaction.class, chemsou.getValue().toLowerCase());
+
+   String adresse_prop=adrprop.getText();
+   String nom=nomprop.getText();
+   String prenom=proprop.getText();
+   String num_tel="029089283";
+  String mail=emailprop.getText();
+  Proprietaire proprietaire=new Proprietaire(nom,num_tel,prenom,mail,adresse_prop);
+
+  if (oussama.getValue().equalsIgnoreCase("Maison")) {
+   try {
+    nouveau = AjouterMaison(proprietaire, transaction);
+   }catch (SuperficieHabitableException e){
+    e.printStackTrace();
+    System.out.println("Superficie habitable invalide");
+   }
+   catch (SurfaceNulleException e) {
+    e.printStackTrace();
+    System.out.println("Surface invalide");
+   }
+   if(ImmoESI.liste_des_biens.contains(nouveau)) throw new BienExistantException();
+   else{
+    ImmoESI.liste_des_biens.add(nouveau); //Utiliser un TreeSet supprime la possibilité de doublons
+    ImmoESI.proprietaires.add(proprietaire);
+    //Ajouter le bien à la liste des biens du proprietaires
+    proprietaire.liste_proprietees.add(nouveau);}
+  }/* else {
+  if (type_bien.equalsIgnoreCase("appartement")) {
+    try {
+     nouveau = AjouterAppart(proprietaire, transaction);
+    } catch (SurfaceNulleException e) {
+     e.printStackTrace();
+     System.out.println("Surface exception");
+    }
+    if(liste_des_biens.contains(nouveau)) System.out.println("Ce bien existe deja");
+    else{
+     liste_des_biens.add(nouveau);
+     proprietaires.add(proprietaire);
+     //Ajouter le bien à la liste des biens du proprietaires
+     proprietaire.liste_proprietees.add(nouveau);}
+   } else {
+    if (type_bien.equalsIgnoreCase("terrain")) {
+     try {
+      nouveau = AjouterTerrain(proprietaire, transaction);
+     } catch (SurfaceNulleException e) {
+      e.printStackTrace();
+     }
+     if(liste_des_biens.contains(nouveau)) System.out.println("Ce bien existe deja");
+     else{
+      liste_des_biens.add(nouveau);
+      proprietaires.add(proprietaire);
+      proprietaire.liste_proprietees.add(nouveau);}
+    } else {
+     System.out.println("Type de bien invalide! ");
+    }
+   }
+  }*/
+ }
+
+
+
+
+
+
+
+@FXML
+public void goajouter2() throws Exception {
+ Stage stage = Main.getPrimaryStage();
+ if(oussama.getValue()=="Maison"){
+ Parent root = FXMLLoader.load(getClass().getResource("ajouter2.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+ }
+
+ //    this.secondstage= stage;
+}
 
 
 

@@ -11,7 +11,7 @@ public class Proprietaire implements Comparable<Proprietaire>, Serializable {
     private String prenom;
     private String mail;
     private String adresse;
-    protected TreeSet<Bien> liste_proprietees =new TreeSet<Bien>();
+    public TreeSet<Bien> liste_proprietees =new TreeSet<Bien>();
 
     public Proprietaire(String nom, String num_tel, String prenom, String mail, String adresse, TreeSet<Bien> liste_proprietees) {
         this.nom = nom;

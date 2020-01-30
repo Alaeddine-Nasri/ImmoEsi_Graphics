@@ -15,7 +15,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="270.0" style="-fx-background-color: #7F59B0;">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../icons/admin-ui.png" />
                     </image>
@@ -33,14 +33,14 @@
             </children></Pane>
       <ScrollPane layoutX="270.0" prefHeight="500.0" prefWidth="633.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1375.0" prefWidth="617.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1500.0" prefWidth="617.0">
                <children>
                   <Text layoutX="224.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
                      <font>
                         <Font name="System Bold" size="23.0" />
                      </font>
                   </Text>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="211.0" prefHeight="50.0" prefWidth="317.0" promptText="Nom du Propriétaire" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="nomprop" layoutX="156.0" layoutY="211.0" prefHeight="50.0" prefWidth="317.0" promptText="Nom du Propriétaire" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -50,103 +50,103 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="270.0" prefHeight="50.0" prefWidth="317.0" promptText="Prénom du Propriétaire" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="proprop" layoutX="156.0" layoutY="270.0" prefHeight="50.0" prefWidth="317.0" promptText="Prénom du Propriétaire" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="329.0" prefHeight="50.0" prefWidth="317.0" promptText="Adresse du Propriétaire" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="adrprop" layoutX="156.0" layoutY="329.0" prefHeight="50.0" prefWidth="317.0" promptText="Adresse du Propriétaire" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="388.0" prefHeight="50.0" prefWidth="317.0" promptText="Numéro Téléphone" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="emailprop" layoutX="156.0" layoutY="387.0" prefHeight="50.0" prefWidth="317.0" promptText="Email" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="447.0" prefHeight="50.0" prefWidth="317.0" promptText="Email" stylesheets="@styles.css">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </TextField>
-                  <Text fill="#e84c89" layoutX="156.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information du Bien :">
+                  <ChoiceBox fx:id="oussama" layoutX="148.0" layoutY="63.0" prefHeight="46.0" prefWidth="318.0" />
+                  <ChoiceBox fx:id="chemsou" layoutX="148.0" layoutY="119.0" prefHeight="46.0" prefWidth="318.0" />
+                  <Text fill="#e84c89" layoutX="156.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information du Bien :">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="834.0" prefHeight="50.0" prefWidth="317.0" promptText="Descriptif" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="desc" layoutX="156.0" layoutY="771.0" prefHeight="50.0" prefWidth="317.0" promptText="Descriptif" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="893.0" prefHeight="50.0" prefWidth="317.0" promptText="Photo" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="photos" layoutX="156.0" layoutY="830.0" prefHeight="50.0" prefWidth="317.0" promptText="Photo" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="952.0" prefHeight="50.0" prefWidth="317.0" promptText="Nombre d'étages" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="nbe" layoutX="156.0" layoutY="889.0" prefHeight="50.0" prefWidth="317.0" promptText="Nombre d'étages" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="1011.0" prefHeight="50.0" prefWidth="317.0" promptText="Nombre de pieces" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="nbp" layoutX="156.0" layoutY="948.0" prefHeight="50.0" prefWidth="317.0" promptText="Nombre de pieces" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="1070.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle meublee ?" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="meublee" layoutX="156.0" layoutY="1007.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle meublee ?" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="1130.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle un jardin ?" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="jardin" layoutX="156.0" layoutY="1067.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle un jardin ?" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="1189.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle une piscine ?" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="piscine" layoutX="156.0" layoutY="1126.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle une piscine ?" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="1248.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle un garage ?" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="garage" layoutX="156.0" layoutY="1185.0" prefHeight="50.0" prefWidth="317.0" promptText="Cette maison contient-elle un garage ?" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="534.0" prefHeight="50.0" prefWidth="317.0" promptText="Adresse" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="adr" layoutX="156.0" layoutY="471.0" prefHeight="50.0" prefWidth="317.0" promptText="Adresse" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="593.0" prefHeight="50.0" prefWidth="317.0" promptText="Wilaya" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="wila" layoutX="156.0" layoutY="530.0" prefHeight="50.0" prefWidth="317.0" promptText="Wilaya" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="655.0" prefHeight="50.0" prefWidth="317.0" promptText="Superficie" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="supr" layoutX="156.0" layoutY="592.0" prefHeight="50.0" prefWidth="317.0" promptText="Superficie" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="714.0" prefHeight="50.0" prefWidth="317.0" promptText="Prix" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="pri" layoutX="156.0" layoutY="651.0" prefHeight="50.0" prefWidth="317.0" promptText="Prix" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <TextField id="inputsignup" layoutX="156.0" layoutY="773.0" prefHeight="50.0" prefWidth="317.0" promptText="Negociable" stylesheets="@styles.css">
+                  <TextField id="inputsignup" fx:id="negos" layoutX="156.0" layoutY="710.0" prefHeight="50.0" prefWidth="317.0" promptText="Negociable" stylesheets="@styles.css">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <Button id="sign" layoutX="264.0" layoutY="1316.0" mnemonicParsing="false" stylesheets="@styles.css" text="Ajouter!" textFill="WHITE">
+                  <Button id="sign" layoutX="264.0" layoutY="1303.0" mnemonicParsing="false" onAction="#ajouterBienn" stylesheets="@styles.css" text="Ajouter!" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Button>
-                  <ChoiceBox fx:id="oussama" layoutX="148.0" layoutY="63.0" prefHeight="46.0" prefWidth="318.0" />
-                  <ChoiceBox fx:id="chemsou" layoutX="148.0" layoutY="119.0" prefHeight="46.0" prefWidth="318.0" />
+                  <TextField id="inputsignup" fx:id="surh" layoutX="156.0" layoutY="1245.0" prefHeight="50.0" prefWidth="317.0" promptText="Surface Habitable" stylesheets="@styles.css">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
         </content>

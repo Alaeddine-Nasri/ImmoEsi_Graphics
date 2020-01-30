@@ -107,6 +107,8 @@ public class Controller3 implements Initializable,Serializable {
   ImmoESI.ajouterBien(admin,bien6);
   ImmoESI.ajouterBien(admin,bien7);
   ImmoESI.ajouterBien(admin,bien8);
+  ImmoESI.liste_rech.addAll(ImmoESI.liste_des_biens);
+  ImmoESI.liste_rech2.addAll(ImmoESI.liste_des_biens);
 
  /* ImmoESI.envoyerMessage("Je suis interessé par ce bien","user1@gmail.com","nom1");
   ImmoESI.envoyerMessage("Pouvons nous visiter ce bien","user1@gmail.com","nom3");
@@ -2455,41 +2457,25 @@ TextField max,min,surface;
  public ArrayList<Bien> recherche_filtre(ArrayList<Bien> list1, ArrayList<Bien> list2,int k){
   // list1.addAll(ImmoESI.liste_des_biens);
    //list2.addAll(ImmoESI.liste_des_biens);
-   Scanner sc = new Scanner(System.in);
+
 
    /***********wilaya*****************/
- /*  if (wil.getValue()=="wilaya1"){//wilaya
-    wilaya = 49;} else if(wil.getValue()=="wilaya2") {
-   wilaya = 50;} else if(wil.getValue()=="wilaya3"){
-    wilaya = 51;}
-    for (Bien ele1:list1){ // wilaya
-     if (ele1.getWilaya().matricule != wilaya) {list2.remove(ele1);}
-    }*/
+  if (wil.getValue()=="wilaya1"){//wilaya
+   wilaya = 49;} else if(wil.getValue()=="wilaya2") {
+   wilaya = 50;} else if(wil.getValue()=="wilaya3") {
+   wilaya = 51;}
+  for (Bien ele1:list1){ // wilaya
+   if (ele1.getWilaya().matricule != wilaya) {
+    System.out.println("non wilaya");
+    list2.remove(ele1);}
+  }
 /**************Type de bien****************/
-  if (typebien.getValue() == "maison" ) {
-   for (Bien ele1 : list1) {
-    if ((ele1 instanceof Appartement) || (ele1 instanceof Terrain)) {
-     System.out.println("zdna1");
-     System.out.println(ele1.getClass().getName());
-     list2.remove(ele1);}
-   }
-  }
-  else if (typebien.getValue()=="appartement") {
-   for (Bien ele1 : list1) {
-    if ((ele1 instanceof Maison) || (ele1 instanceof Terrain) ) {list2.remove(ele1);}
-   }
-  }
-  else if (typebien.getValue()=="terrain") {
-   for (Bien ele1 : list1) {
-    if ((ele1 instanceof Appartement) || (ele1 instanceof Maison) ) {list2.remove(ele1);}
-   }
-  }
+
 
 /******************* type de transaction ********************************/
-  /*if (transaction.getValue()=="vente"){
+  if (transaction.getValue()=="vente"){
 
    for (Bien ele1 : list1) {
-
     if (ele1.getTransaction() != TypeDeTransaction.vente) { list2.remove(ele1);}
    }
   }
@@ -2501,7 +2487,28 @@ TextField max,min,surface;
    for (Bien ele1 : list1) {
     if (ele1.getTransaction() != TypeDeTransaction.echange) { list2.remove(ele1); }
    }
-  }*/
+  }
+
+  if (typebien.getValue() == "maison" ) {
+   for (Bien ele1 : list1) {
+    if ((ele1 instanceof Appartement)||(ele1 instanceof Terrain)) {
+     System.out.println("zdna1");
+     System.out.println(ele1.getClass().getName());
+     list2.remove(ele1);}
+   }
+  }
+  else if (typebien.getValue()=="appartement") {
+   for (Bien ele1 : list1) {
+    if ((ele1 instanceof Maison)||(ele1 instanceof Terrain) ) {list2.remove(ele1);}
+   }
+  }
+  else if (typebien.getValue()=="terrain") {
+   for (Bien ele1 : list1) {
+    if ((ele1 instanceof Appartement)||(ele1 instanceof Maison)) {list2.remove(ele1);}
+   }
+  }
+  /***************** walou walou ***********************/
+
 
    // prix max
  /*   if(max.getText()!="") {
@@ -2570,8 +2577,8 @@ TextField max,min,surface;
   int cpt = 1;
   Pane details = new Pane();
   bienbox = new VBox();
-  ImmoESI.liste_rech.addAll(ImmoESI.liste_des_biens);
-  ImmoESI.liste_rech2.addAll(ImmoESI.liste_des_biens);
+
+  //ImmoESI.liste_rech2.addAll(ImmoESI.liste_des_biens);
   for(Bien ele:recherche_filtre(ImmoESI.liste_rech,ImmoESI.liste_rech2,1)){
    System.out.println("hna 3lh?");
    /************************************************** Declarations ***************************************************/
@@ -2722,7 +2729,7 @@ TextField max,min,surface;
    bienAdresse2.setFill(Paint.valueOf("#000000"));
    bienAdresse2.setFont(Font.font("System", FontWeight.NORMAL, 15));
 
-   bienTypeb2.setText(ele.getClass().getName().substring(7));
+   bienTypeb2.setText(ele.getClass().getName().substring(4));
    bienTypeb2.setLayoutX(245);
    bienTypeb2.setLayoutY(85);
    bienTypeb2.setFill(Paint.valueOf("#000000"));

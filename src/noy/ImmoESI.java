@@ -272,7 +272,7 @@ public class ImmoESI implements Serializable {
 
         return bien;
     }
-    public Proprietaire choisirProprietaire(int numeroduprprio){
+    public static Proprietaire choisirProprietaire(int numeroduprprio){
         int cpt=0; Proprietaire proprietaire=null;
         Iterator<Proprietaire> it=proprietaires.iterator();
         while (it.hasNext()&&cpt!=numeroduprprio){

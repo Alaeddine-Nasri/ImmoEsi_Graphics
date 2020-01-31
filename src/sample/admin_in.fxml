@@ -14,88 +14,70 @@
    <children>
       <Pane prefHeight="500.0" prefWidth="659.0" style="-fx-background-color: #7F59B0;">
          <children>
-            <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="83.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="423.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/admin-ui.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="443.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="103.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/user.png" />
                </image>
             </ImageView>
-            <Line endX="44.0" endY="194.0" layoutX="280.0" layoutY="289.0" startX="44.0" startY="-41.0" stroke="WHITE" strokeWidth="3.0" />
+            <Line endX="44.0" endY="149.0" layoutX="280.0" layoutY="289.0" startX="44.0" startY="-41.0" stroke="WHITE" strokeWidth="3.0" />
             <Text fill="WHITE" layoutX="253.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fonctionalitées">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="447.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simple User">
+            <Text fill="WHITE" layoutX="107.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simple User">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="112.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+            <Text fill="WHITE" layoutX="452.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="58.0" layoutY="250.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="340.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechreche">
+            <Text fill="WHITE" layoutX="83.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Afficher tous les biens">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="58.0" layoutY="310.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
+            <Text fill="WHITE" layoutX="83.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechreche Filtrée">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Circle fill="WHITE" layoutX="368.0" layoutY="370.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="WHITE" layoutX="393.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Bien">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="58.0" layoutY="280.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="370.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bien archive">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="400.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="430.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="83.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Circle fill="WHITE" layoutX="368.0" layoutY="250.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="393.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Afficher tous les biens">
+            <Text fill="WHITE" layoutX="83.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Envoyer un message">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="368.0" layoutY="340.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="392.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archiver Un Bien">
+            <Text fill="WHITE" layoutX="393.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Biens archive">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Circle fill="WHITE" layoutX="368.0" layoutY="310.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="392.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
+            <Text fill="WHITE" layoutX="392.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archiver Un Bien">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Circle fill="WHITE" layoutX="368.0" layoutY="250.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="WHITE" layoutX="392.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un Bien">
                <font>
                   <Font size="15.0" />
                </font>
@@ -106,8 +88,8 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Circle fill="WHITE" layoutX="368.0" layoutY="370.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="392.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bien d'un propritaire">
+            <Circle fill="WHITE" layoutX="58.0" layoutY="340.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="WHITE" layoutX="82.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bien d'un propritaire">
                <font>
                   <Font size="15.0" />
                </font>
@@ -118,22 +100,29 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Circle fill="WHITE" layoutX="368.0" layoutY="430.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="392.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter">
+            <Button layoutX="433.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="102.0" />
+            <Button layoutX="103.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="120.0" />
+            <Button fx:id="affichertouslesbiens" layoutX="43.0" layoutY="237.0" mnemonicParsing="false" onAction="#gotouslesbien" opacity="0.09" prefHeight="25.0" prefWidth="268.0" />
+            <Button fx:id="SupprimerBien" layoutX="363.0" layoutY="267.0" mnemonicParsing="false" onAction="#gosuppbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ajouterbien" layoutX="363.0" layoutY="237.0" mnemonicParsing="false" onAction="#goajouterbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ArchiverBien" layoutX="363.0" layoutY="297.0" mnemonicParsing="false" onAction="#goarchbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="propbien" layoutX="43.0" layoutY="327.0" mnemonicParsing="false" onAction="#propritairebien" opacity="0.09" prefHeight="25.0" prefWidth="268.0" />
+            <Button fx:id="propbien1" layoutX="363.0" layoutY="387.0" mnemonicParsing="false" onAction="#goafficherlesmessages" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ArchiverBien1" layoutX="363.0" layoutY="326.0" mnemonicParsing="false" onAction="#bienarchive" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="ArchiverBien11" layoutX="43.0" layoutY="296.0" mnemonicParsing="false" onAction="#gorf" opacity="0.09" prefHeight="25.0" prefWidth="268.0" />
+            <Button fx:id="ArchiverBien111" layoutX="363.0" layoutY="356.0" mnemonicParsing="false" onAction="#choixmodif" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button id="sign" layoutX="279.0" layoutY="450.0" mnemonicParsing="false" onAction="#gofirst" prefHeight="30.0" prefWidth="91.0" stylesheets="@styles.css" text="Deconnecter" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Circle fill="WHITE" layoutX="58.0" layoutY="370.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="WHITE" layoutX="82.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste prop">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button layoutX="93.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="102.0" />
-            <Button layoutX="443.0" layoutY="195.0" mnemonicParsing="false" opacity="0.11" prefHeight="30.0" prefWidth="120.0" />
-            <Button fx:id="affichertouslesbiens" layoutX="363.0" layoutY="237.0" mnemonicParsing="false" onAction="#gotouslesbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="SupprimerBien" layoutX="363.0" layoutY="267.0" mnemonicParsing="false" onAction="#gosuppbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="ajouterbien" layoutX="363.0" layoutY="297.0" mnemonicParsing="false" onAction="#goajouterbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="ArchiverBien" layoutX="363.0" layoutY="327.0" mnemonicParsing="false" onAction="#goarchbien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="propbien" layoutX="363.0" layoutY="357.0" mnemonicParsing="false" onAction="#propritairebien" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="propbien1" layoutX="363.0" layoutY="387.0" mnemonicParsing="false" onAction="#goafficherlesmessages" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="ArchiverBien1" layoutX="43.0" layoutY="356.0" mnemonicParsing="false" onAction="#bienarchive" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
-            <Button fx:id="ArchiverBien11" layoutX="43.0" layoutY="326.0" mnemonicParsing="false" onAction="#gorf" opacity="0.09" prefHeight="25.0" prefWidth="278.0" />
+            <Button fx:id="propbien2" layoutX="43.0" layoutY="357.0" mnemonicParsing="false" onAction="#gotouslesprop" opacity="0.09" prefHeight="25.0" prefWidth="268.0" />
          </children>
       </Pane>
       <ImageView fitHeight="90.0" fitWidth="91.0" layoutX="736.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">

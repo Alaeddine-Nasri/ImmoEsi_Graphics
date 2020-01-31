@@ -15,7 +15,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="270.0" style="-fx-background-color: #7F59B0;">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../icons/admin-ui.png" />
                     </image>
@@ -30,6 +30,11 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Text>
+            <Button id="sign" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#go_in" prefHeight="30.0" prefWidth="69.0" stylesheets="@styles.css" text="Retour" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children></Pane>
       <ScrollPane layoutX="270.0" prefHeight="500.0" prefWidth="633.0">
         <content>

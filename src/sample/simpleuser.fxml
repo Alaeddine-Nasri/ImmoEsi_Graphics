@@ -19,7 +19,7 @@
                         <Image url="@../icons/user.png" />
                     </image>
                 </ImageView>
-                <Line endX="44.0" endY="137.0" layoutX="-14.0" layoutY="275.0" startX="44.0" startY="-41.0" stroke="WHITE" strokeWidth="3.0" />
+                <Line endX="44.0" endY="77.0" layoutX="-14.0" layoutY="275.0" startX="44.0" startY="-41.0" stroke="WHITE" strokeWidth="3.0" />
                 <Text fill="WHITE" layoutX="53.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fonctionalitées">
                     <font>
                         <Font name="System Bold" size="20.0" />
@@ -37,12 +37,6 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="341.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="82.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Archiver Un Bien">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
             <Circle fill="WHITE" layoutX="58.0" layoutY="281.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
             <Text fill="WHITE" layoutX="83.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Envoyer un message">
                <font>
@@ -55,22 +49,20 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="371.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="82.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechrche filtré">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Circle fill="WHITE" layoutX="58.0" layoutY="401.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="WHITE" layoutX="82.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter">
+            <Circle fill="WHITE" layoutX="58.0" layoutY="341.0" radius="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="WHITE" layoutX="82.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rechrche filtré">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Button fx:id="affichertouslesbiens" layoutX="53.0" layoutY="238.0" mnemonicParsing="false" onAction="#gotouslesbien" opacity="0.09" prefHeight="25.0" prefWidth="193.0" />
-            <Button fx:id="SupprimerBien" layoutX="53.0" layoutY="268.0" mnemonicParsing="false" onAction="#gosendmessage" opacity="0.09" prefHeight="25.0" prefWidth="169.0" />
-            <Button fx:id="ArchiverBien" layoutX="53.0" layoutY="328.0" mnemonicParsing="false" onAction="#gosuppbien" opacity="0.09" prefHeight="25.0" prefWidth="169.0" />
+            <Button fx:id="SupprimerBien" layoutX="53.0" layoutY="268.0" mnemonicParsing="false" onAction="#gosendmessage" opacity="0.09" prefHeight="25.0" prefWidth="193.0" />
             <Button fx:id="propbien" layoutX="53.0" layoutY="298.0" mnemonicParsing="false" onAction="#propritairebien" opacity="0.09" prefHeight="25.0" prefWidth="193.0" />
+            <Button id="sign" layoutX="79.0" layoutY="443.0" mnemonicParsing="false" onAction="#gofirst" prefHeight="30.0" prefWidth="91.0" stylesheets="@styles.css" text="Leave" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
         <ImageView fitHeight="90.0" fitWidth="91.0" layoutX="536.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
@@ -83,5 +75,6 @@
                 <Font name="System Bold" size="30.0" />
             </font>
         </Text>
+      <Button fx:id="ArchiverBien11" layoutX="53.0" layoutY="326.0" mnemonicParsing="false" onAction="#gorf" opacity="0.09" prefHeight="25.0" prefWidth="193.0" />
     </children>
 </AnchorPane>

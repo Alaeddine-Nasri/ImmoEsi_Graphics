@@ -19,6 +19,9 @@ public abstract class Bien implements  Comparable<Bien>, Serializable {
     private boolean Selected = false;
     private String photos; //Lien URL vers l'album des photos
 
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
 
     public boolean getSelected() {
         return Selected;

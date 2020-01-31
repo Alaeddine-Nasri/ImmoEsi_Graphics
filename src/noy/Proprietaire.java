@@ -11,7 +11,8 @@ public class Proprietaire implements Comparable<Proprietaire>, Serializable {
     private String prenom;
     private String mail;
     private String adresse;
-    public TreeSet<Bien> liste_proprietees =new TreeSet<Bien>();
+    private Boolean Selected= false;
+    public static TreeSet<Bien> liste_proprietees =new TreeSet<Bien>();
 
     public Proprietaire(String nom, String num_tel, String prenom, String mail, String adresse, TreeSet<Bien> liste_proprietees) {
         this.nom = nom;
@@ -21,6 +22,19 @@ public class Proprietaire implements Comparable<Proprietaire>, Serializable {
         this.adresse = adresse;
         this.liste_proprietees = liste_proprietees;
     }
+
+    public static void setListe_proprietees(TreeSet<Bien> liste_proprietees) {
+        Proprietaire.liste_proprietees = liste_proprietees;
+    }
+
+    public Boolean getSelected() {
+        return Selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        Selected = selected;
+    }
+
     public Proprietaire(String nom, String num_tel, String prenom, String mail, String adresse) {
         this.nom = nom;
         this.num_tel = num_tel;

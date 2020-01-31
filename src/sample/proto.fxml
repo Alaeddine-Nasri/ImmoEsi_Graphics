@@ -41,5 +41,10 @@
          </image>
       </ImageView>
       <Button fx:id="user" layoutX="544.0" layoutY="238.0" mnemonicParsing="false" onAction="#gosimpleuser" opacity="0.1" prefHeight="200.0" prefWidth="194.0" stylesheets="@styles.css" />
+      <Button id="sign" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="69.0" stylesheets="@styles.css" text="Quitter" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

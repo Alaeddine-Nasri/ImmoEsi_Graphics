@@ -46,5 +46,10 @@
                     </font>
                 </Button>
             </children></Pane>
+      <Button id="sign" layoutX="5.0" layoutY="7.0" mnemonicParsing="false" onAction="#go_in" prefHeight="30.0" prefWidth="69.0" stylesheets="@styles.css" text="Retour" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

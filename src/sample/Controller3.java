@@ -34,6 +34,7 @@ import java.util.TreeSet;
 public class Controller3 implements Initializable,Serializable {
     private TreeSet<Bien> biens =new TreeSet<Bien>();
     private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #FCB326;";
+ private static final String HOVERED_3BUTTON_STYLE = "-fx-background-color: #E84C89;";
     private static final String IDLE_BUTTON_STYLE = "-fx-background-color: #CDCDCD;";
     private static final String HOVERED_2BUTTON_STYLE = "-fx-background-color: #E84C89;";
 
@@ -93,13 +94,22 @@ public class Controller3 implements Initializable,Serializable {
   TypeDeTransaction echange=Enum.valueOf(TypeDeTransaction.class,"echange");
 
   Bien bien1=new Appartement("Lido Mohammadia",wilaya2,120,prop2,vente,4000000,false,"",date,"",4,false,1,false);
-  Bien bien2=new Maison("Birkhadem ",wilaya3,200,prop1,vente,10000000,false,"",date1,"",0,false,true,true,200);
+  Bien bien2=new Maison("Birkhadem ",wilaya3,200,prop1,vente,10000000,false,"",date1,"",3,false,true,true,200);
   Bien bien3=new Terrain("Cheraga",wilaya1,500,prop1,vente,20000000,false,"",date2,"",3,"");
   Bien bien4=new Appartement("Bab ezzouar",wilaya3,100,prop2,location,40000,false,"",date7,"",3,false,1,false);
-  Bien bien5=new Maison("Belfort",wilaya2,160,prop3,location,150000,false,"",date3,"",0,false,false,true,160);
+  Bien bien5=new Maison("Belfort",wilaya2,160,prop3,location,150000,false,"",date3,"",1,false,false,true,160);
   Bien bien6=new Appartement("Dely Brahim",wilaya3,50,prop2,location,600000,false,"",date4,"",1,false,6,false,false,true);
   Bien bien7=new Terrain("Kharoubier",wilaya1,650,prop1,echange,18000000,false,"",date5,"",1,"");
-  Bien bien8=new Maison("Belf",wilaya2,200,prop2,echange,14000000,false,"",date6,"",0,false,0,true,false,false,200);
+  Bien bien8=new Maison("Belf",wilaya2,200,prop2,echange,14000000,false,"",date6,"",0,false,2,true,false,false,200);
+ bien1.setPhotos("file:src\\resources\\download.jpg");
+ bien2.setPhotos("file:src\\resources\\house2.jpg");
+ bien4.setPhotos("file:src\\resources\\house3.jpg");
+ bien5.setPhotos("file:src\\resources\\house2.jpg");
+ bien6.setPhotos("file:src\\resources\\house3.jpg");
+ bien3.setPhotos("file:src\\resources\\terrain1.jpg");
+ bien7.setPhotos("file:src\\resources\\terrain2.jpg");
+
+
   ImmoESI.ajouterBien(admin,bien1);
   ImmoESI.ajouterBien(admin,bien2);
   ImmoESI.ajouterBien(admin,bien3);
@@ -111,7 +121,8 @@ public class Controller3 implements Initializable,Serializable {
   ImmoESI.liste_rech.addAll(ImmoESI.liste_des_biens);
   ImmoESI.liste_rech2.addAll(ImmoESI.liste_des_biens);
 
- /* ImmoESI.envoyerMessage("Je suis interessé par ce bien","user1@gmail.com","nom1");
+
+/* ImmoESI.envoyerMessage("Je suis interessé par ce bien","user1@gmail.com","nom1");
   ImmoESI.envoyerMessage("Pouvons nous visiter ce bien","user1@gmail.com","nom3");
   ImmoESI.envoyerMessage( "Ce bien est il encore disponible ? ","user1@gmail.com","nom12");
   ImmoESI.envoyerMessage("Ce bien est il negociable ? ","user1@gmail.com","nom3");
@@ -165,6 +176,7 @@ public class Controller3 implements Initializable,Serializable {
                 /************************************************** Declarations ***************************************************/
 
                 Button b = new Button();
+
                 StackPane r = new StackPane();
                 AnchorPane screen = new AnchorPane();
                 AnchorPane banchor = new AnchorPane();
@@ -199,7 +211,27 @@ public class Controller3 implements Initializable,Serializable {
                 b.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
                 b.setOnMouseExited(e -> b.setStyle(IDLE_BUTTON_STYLE));
 
+      Button retour = new Button();
+      retour.setMnemonicParsing(false);
+      retour.setPrefHeight(30.0);
+      //   b.setMaxHeight(130.0);
+      //   b.setMinHeight(130.0);
+      retour.setPrefWidth(60.0);
+      retour.setLayoutX(10);
+      retour.setLayoutY(10);
+      retour.setId("bienbtn");
+      retour.setText("Retour");
+      retour.setStyle("-fx-background-color: #E84C89;");
+      retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+      retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
 
+      retour.setOnMouseClicked(e -> {
+       try {
+        go_in();
+       } catch (Exception ex) {
+        ex.printStackTrace();
+       }
+      });
 
 
 
@@ -347,6 +379,7 @@ public class Controller3 implements Initializable,Serializable {
                 scrollPane.setContent(r);
                 screen.getChildren().add(scrollPane);
                 screen.getChildren().add(title);
+                details.getChildren().add(retour);
                 screen.getChildren().add(details);
           //   screen.getChildren().add(im);
            //   scrollPane.setContent(details);
@@ -418,17 +451,19 @@ public class Controller3 implements Initializable,Serializable {
    Text bienTypet = new Text(); Text bienTypeb = new Text(); Text bienPrix = new Text(); Text bienSurface = new Text();
 
    Text bienName1 = new Text(); Text bienAdresse1 = new Text(); Text bienProp1 = new Text();
+   Text biensu1 = new Text();Text biennbp1 = new Text();
    Text bienTypet1 = new Text(); Text bienTypeb1 = new Text(); Text bienPrix1 = new Text(); Text bienSurface1 = new Text();
 
    Text bienAdresse2 = new Text();Text bienProp2 = new Text();
    Text bienTypet2 = new Text(); Text bienTypeb2 = new Text(); Text bienPrix2 = new Text(); Text bienSurface2 = new Text();
 
-   Text bienAdresse3 = new Text();Text bienProp3 = new Text();
+   Text bienAdresse3 = new Text();Text bienProp3 = new Text();Text bienSur3 = new Text();Text biennbp3 = new Text();
    Text bienTypet3 = new Text(); Text bienTypeb3 = new Text(); Text bienPrix3 = new Text(); Text bienSurface3 = new Text();
 
    ImageView im = new ImageView();
-   Image image = new Image("file:C:/Users/Dell/Desktop/POO/JAVAFXSETUP/src/icons/download.png");
+   Image image = new Image(ele.getPhotos());
    im.setImage(image);
+
 
 
    /************************************************** Biens Button ***************************************************/
@@ -458,7 +493,26 @@ public class Controller3 implements Initializable,Serializable {
     //screen = new AnchorPane();
     //b.setStyle(HOVERED_BUTTON_STYLE);
    }
-
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
 
  //  if (f==0){
   //  f =1;
@@ -551,7 +605,7 @@ public class Controller3 implements Initializable,Serializable {
    bienAdresse2.setFill(Paint.valueOf("#000000"));
    bienAdresse2.setFont(Font.font("System", FontWeight.NORMAL, 15));
 
-   bienTypeb2.setText(ele.getClass().getName().substring(7));
+   bienTypeb2.setText(ele.getClass().getName().substring(4));
    bienTypeb2.setLayoutX(245);
    bienTypeb2.setLayoutY(85);
    bienTypeb2.setFill(Paint.valueOf("#000000"));
@@ -587,7 +641,7 @@ public class Controller3 implements Initializable,Serializable {
 
    /************************************************** Details Text ***************************************************/
 
-   bienName1.setText("Bien1 :");
+   bienName1.setText(numbien);
    bienName1.setFill(Paint.valueOf("#ffffff"));
    bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
    bienName1.setLayoutX(110);
@@ -623,6 +677,30 @@ public class Controller3 implements Initializable,Serializable {
    bienSurface1.setFill(Paint.valueOf("#ffffff"));
    bienSurface1.setFont(Font.font("System", FontWeight.BOLD, 12));
 
+   biensu1.setText("Nombre d'etages :");
+   biensu1.setLayoutX(20);
+   biensu1.setLayoutY(410);
+   biensu1.setFill(Paint.valueOf("#ffffff"));
+   biensu1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   biennbp1.setText("Nombre de pieces :");
+   biennbp1.setLayoutX(20);
+   biennbp1.setLayoutY(435);
+   biennbp1.setFill(Paint.valueOf("#ffffff"));
+   biennbp1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   bienSurface1.setText("Negociable :");
+   bienSurface1.setLayoutX(20);
+   bienSurface1.setLayoutY(385);
+   bienSurface1.setFill(Paint.valueOf("#ffffff"));
+   bienSurface1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+/*   bienSurface1.setText("Descriptif :");
+   bienSurface1.setLayoutX(20);
+   bienSurface1.setLayoutY(410);
+   bienSurface1.setFill(Paint.valueOf("#ffffff"));
+   bienSurface1.setFont(Font.font("System", FontWeight.BOLD, 12));*/
+
    bienPrix1.setText("Prix :");
    bienPrix1.setLayoutX(10);
    bienPrix1.setLayoutY(230);
@@ -638,7 +716,7 @@ public class Controller3 implements Initializable,Serializable {
     bienAdresse3.setFill(Paint.valueOf("#FCB326"));
     bienAdresse3.setFont(Font.font("System", FontWeight.BOLD, 12));
 
-    bienTypeb3.setText(ele.getClass().getName().substring(7));
+    bienTypeb3.setText(ele.getClass().getName().substring(4));
     bienTypeb3.setLayoutX(145);
     bienTypeb3.setLayoutY(285);
     bienTypeb3.setFill(Paint.valueOf("#FCB326"));
@@ -662,6 +740,33 @@ public class Controller3 implements Initializable,Serializable {
     bienSurface3.setFill(Paint.valueOf("#FCB326"));
     bienSurface3.setFont(Font.font("System", FontWeight.BOLD, 12));
 
+    bienSur3.setText((ele.getClass().getSimpleName().equals("Maison")) ? String.valueOf(((Maison) ele).getNbr_etages()) : "");
+    bienSur3.setLayoutX(130);
+    bienSur3.setLayoutY(410);
+    bienSur3.setFill(Paint.valueOf("#FCB326"));
+    bienSur3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+    biennbp3.setText((ele.getClass().getSimpleName().equals("Maison"))||(ele.getClass().getSimpleName().equals("Appartement"))  ? String.valueOf(((Habitable) ele).getNbr_pieces()) : "");
+    biennbp3.setLayoutX(130);
+    biennbp3.setLayoutY(435);
+    biennbp3.setFill(Paint.valueOf("#FCB326"));
+    biennbp3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+
+    bienSurface3.setText(String.valueOf(ele.isNegociable()));
+    bienSurface3.setLayoutX(105);
+    bienSurface3.setLayoutY(385);
+    bienSurface3.setFill(Paint.valueOf("#FCB326"));
+    bienSurface3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+
+
+  /*  bienSurface3.setText(String.valueOf(ele.getDescriptif()));
+    bienSurface3.setLayoutX(105);
+    bienSurface3.setLayoutY(410);
+    bienSurface3.setFill(Paint.valueOf("#FCB326"));
+    bienSurface3.setFont(Font.font("System", FontWeight.BOLD, 12));*/
+
     bienPrix3.setText(String.valueOf(ele.calculerprix()));
     bienPrix3.setLayoutX(110);
     bienPrix3.setLayoutY(230);
@@ -677,10 +782,10 @@ public class Controller3 implements Initializable,Serializable {
 
    /************************************************** Image ***************************************************/
 
-   //   im.setFitHeight(150);
-   // im.setFitWidth(200);
-   //    im.setLayoutX(35);
-   //    im.setLayoutY(60);
+      im.setFitHeight(120);
+      im.setFitWidth(200);
+      im.setLayoutX(30);
+      im.setLayoutY(60);
 
    /************************************************** Affectation ***************************************************/
 
@@ -720,6 +825,10 @@ public class Controller3 implements Initializable,Serializable {
     details.getChildren().add(bienProp1);
     details.getChildren().add(bienSurface1);
     details.getChildren().add(bienPrix1);
+    details.getChildren().add(biennbp1);
+    details.getChildren().add(bienSur3);
+    details.getChildren().add(biensu1);
+    details.getChildren().add(biennbp3);
 
 
     details.getChildren().add(bienAdresse3);
@@ -731,6 +840,7 @@ public class Controller3 implements Initializable,Serializable {
 
 
     details.getChildren().add(im);
+
    }
 
    //banchor.setOnMouseClicked(e -> banchor.setStyle(HOVERED_BUTTON_STYLE));
@@ -739,6 +849,7 @@ public class Controller3 implements Initializable,Serializable {
    scrollPane.setContent(r);
    screen.getChildren().add(scrollPane);
    screen.getChildren().add(title);
+   details.getChildren().add(retour);
    screen.getChildren().add(details);
    //   screen.getChildren().add(im);
    //   scrollPane.setContent(details);
@@ -816,6 +927,7 @@ public class Controller3 implements Initializable,Serializable {
    Text bienAdresse2 = new Text();Text bienProp2 = new Text();
    Text bienTypet2 = new Text(); Text bienTypeb2 = new Text(); Text bienPrix2 = new Text(); Text bienSurface2 = new Text();
 
+
    Text bienAdresse3 = new Text();Text bienProp3 = new Text();
    Text bienTypet3 = new Text(); Text bienTypeb3 = new Text(); Text bienPrix3 = new Text(); Text bienSurface3 = new Text();
 
@@ -852,7 +964,26 @@ public class Controller3 implements Initializable,Serializable {
     //b.setStyle(HOVERED_BUTTON_STYLE);
    }
 
-
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
    //  if (f==0){
    //  f =1;
    //  ele.setSelected(true);
@@ -980,7 +1111,7 @@ public class Controller3 implements Initializable,Serializable {
 
    /************************************************** Details Text ***************************************************/
 
-   bienName1.setText("Bien1 :");
+   bienName1.setText(numbien);
    bienName1.setFill(Paint.valueOf("#ffffff"));
    bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
    bienName1.setLayoutX(110);
@@ -1132,6 +1263,7 @@ public class Controller3 implements Initializable,Serializable {
    scrollPane.setContent(r);
    screen.getChildren().add(scrollPane);
    screen.getChildren().add(title);
+   details.getChildren().add(retour);
    screen.getChildren().add(details);
    //   screen.getChildren().add(im);
    //   scrollPane.setContent(details);
@@ -1269,7 +1401,26 @@ public void suppdetails(Bien ele,Button b) throws Exception {
     details = new Pane();
   //  conf = new Button();
    }
-
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
 
    //  if (f==0){
    //  f =1;
@@ -1417,7 +1568,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
 
    /************************************************** Details Text ***************************************************/
 
-   bienName1.setText("Bien1 :");
+   bienName1.setText(numbien);
    bienName1.setFill(Paint.valueOf("#ffffff"));
    bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
    bienName1.setLayoutX(110);
@@ -1573,6 +1724,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
    scrollPane.setContent(r);
    screen.getChildren().add(scrollPane);
    screen.getChildren().add(title);
+   details.getChildren().add(retour);
    screen.getChildren().add(details);
    //   screen.getChildren().add(im);
    //   scrollPane.setContent(details);
@@ -1714,6 +1866,26 @@ public void suppdetails(Bien ele,Button b) throws Exception {
    //  ele.setSelected(true);
    // b.setStyle(IDLE_BUTTON_STYLE);
    //}
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
 
 
 
@@ -1855,7 +2027,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
 
    /************************************************** Details Text ***************************************************/
 
-   bienName1.setText("Bien1 :");
+   bienName1.setText(numbien);
    bienName1.setFill(Paint.valueOf("#ffffff"));
    bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
    bienName1.setLayoutX(110);
@@ -2011,6 +2183,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
    scrollPane.setContent(r);
    screen.getChildren().add(scrollPane);
    screen.getChildren().add(title);
+   details.getChildren().add(retour);
    screen.getChildren().add(details);
    //   screen.getChildren().add(im);
    //   scrollPane.setContent(details);
@@ -2133,6 +2306,26 @@ public void suppdetails(Bien ele,Button b) throws Exception {
    scrollPane.setMinWidth(630.0);
    scrollPane.setMaxHeight(453.0);
    scrollPane.setMinHeight(453.0);
+    Button retour = new Button();
+    retour.setMnemonicParsing(false);
+    retour.setPrefHeight(30.0);
+    //   b.setMaxHeight(130.0);
+    //   b.setMinHeight(130.0);
+    retour.setPrefWidth(60.0);
+    retour.setLayoutX(10);
+    retour.setLayoutY(10);
+    retour.setId("bienbtn");
+    retour.setText("Retour");
+    retour.setStyle("-fx-background-color: #E84C89;");
+    retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+    retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+    retour.setOnMouseClicked(e -> {
+     try {
+      go_in();
+     } catch (Exception ex) {
+      ex.printStackTrace();
+     }
+    });
 
    /************************************************** Button Text ***************************************************/
 
@@ -2225,7 +2418,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
 
    /************************************************** Details Text ***************************************************/
 
-   bienName1.setText("Bien1 :");
+   //bienName1.setText(numbien);
    bienName1.setFill(Paint.valueOf("#ffffff"));
    bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
    bienName1.setLayoutX(110);
@@ -2363,6 +2556,7 @@ public void suppdetails(Bien ele,Button b) throws Exception {
    scrollPane.setContent(r);
    screen.getChildren().add(scrollPane);
    screen.getChildren().add(title);
+   details.getChildren().add(retour);
    screen.getChildren().add(details);
    //   screen.getChildren().add(im);
    //   scrollPane.setContent(details);
@@ -2534,6 +2728,37 @@ TextField surface = new TextField();
    return list2;
   }
 
+ public void go_in() throws Exception {
+
+   Stage stage = Main.getPrimaryStage();
+   Parent root = FXMLLoader.load(getClass().getResource("admin_in.fxml"));
+   stage.setTitle("ImmoEsi");
+   stage.setScene(new Scene(root, 900, 500));
+   stage.show();
+
+  //   this.secondstage= stage;
+ }
+ public void go_simpin() throws Exception {
+
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("simpleuser.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+
+  //   this.secondstage= stage;
+ }
+ public void gofirst() throws Exception {
+
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("proto.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+
+  //   this.secondstage= stage;
+ }
+
 
 
  public void rerechrecheaff(Bien ele,Button b) throws Exception {
@@ -2621,6 +2846,26 @@ TextField surface = new TextField();
     //screen = new AnchorPane();
     //b.setStyle(HOVERED_BUTTON_STYLE);
    }
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
 
 
    //  if (f==0){
@@ -2750,7 +2995,7 @@ TextField surface = new TextField();
 
    /************************************************** Details Text ***************************************************/
 
-   bienName1.setText("Bien1 :");
+   bienName1.setText(numbien);
    bienName1.setFill(Paint.valueOf("#ffffff"));
    bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
    bienName1.setLayoutX(110);
@@ -2902,6 +3147,7 @@ TextField surface = new TextField();
    scrollPane.setContent(r);
    screen.getChildren().add(scrollPane);
    screen.getChildren().add(title);
+   details.getChildren().add(retour);
    screen.getChildren().add(details);
    //   screen.getChildren().add(im);
    //   scrollPane.setContent(details);
@@ -2939,51 +3185,54 @@ public void goajou() throws Exception {
 
 
 @FXML
-private TextField desc;
+private TextField desc=new TextField();
 
  @FXML
- private TextField photos;
+ private TextField photos=new TextField();
 
  @FXML
- private TextField nbe;
+ private TextField nbe=new TextField();
 
  @FXML
- private TextField nbp;
+ private TextField nbp=new TextField();
 
  @FXML
- private TextField meublee;
+ private TextField meublee=new TextField();
 
  @FXML
- private TextField jardin;
+ private TextField jardin=new TextField();
 
  @FXML
- private TextField piscine;
+ private TextField piscine=new TextField();
 
  @FXML
- private TextField garage;
+ private TextField garage=new TextField();
 
  @FXML
- private TextField adr;
+ private TextField adr=new TextField();
 
  @FXML
- private TextField wila;
+ private TextField wila=new TextField();
 
  @FXML
- private TextField supr;
+ private TextField supr=new TextField();
 
  @FXML
- private TextField pri;
+ private TextField pri=new TextField();
 
  @FXML
- private TextField negos;
+ private TextField negos=new TextField();
  @FXML
- private TextField surh;
+ private TextField surh=new TextField();
 
 
  public Bien AjouterMaison(Proprietaire proprietaire, TypeDeTransaction transaction) throws SuperficieHabitableException,SurfaceNulleException{
   Scanner sc=new Scanner(System.in);
 
+
+
    String adresse = adr.getText();
+
 
   Wilaya wilaya =Enum.valueOf(Wilaya.class, wila.getText().toLowerCase());
   //Wilaya wilaya = Wilaya.wilaya1;
@@ -3013,23 +3262,27 @@ private TextField desc;
   garage= jar.equalsIgnoreCase("oui");
   float surface_habitable=Float.parseFloat(surh.getText());
   //Creation de l'objet
-  if(surface < surface_habitable) throw new SuperficieHabitableException();
+  if(surface < surface_habitable) { Alert alert = new Alert(Alert.AlertType.ERROR);
+   alert.setTitle("Superfice Exeption");
+   alert.setHeaderText("La surface habitable et plus grande que la surface du bien");
+   alert.setContentText("reentrez la surface");
+   alert.showAndWait();}
   Bien nouveau= null;
   nouveau = new Maison(adresse,wilaya,surface,proprietaire,transaction,prix,negociable,descriptif,date,photo,nbr_pieces,meuble,nbr_etages,garage,jardin,piscine,surface_habitable);
 
   return  nouveau;
  }
  @FXML
- private TextField nomprop;
+ private TextField nomprop =new TextField();
 
  @FXML
- private TextField proprop;
+ private TextField proprop=new TextField();
 
  @FXML
- private TextField adrprop;
+ private TextField adrprop = new TextField();
 
  @FXML
- private TextField emailprop;
+ private TextField emailprop=new TextField();
 
  @FXML
  public void goajouterbien() throws Exception {
@@ -3068,7 +3321,11 @@ private TextField desc;
    }
    catch (SurfaceNulleException e) {
     e.printStackTrace();
-    System.out.println("Surface invalide");
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Superfice Habitable non valide");
+    alert.setHeaderText("La surface habitable est non valide");
+    alert.setContentText("reentrez la surface");
+    alert.showAndWait();
    }
    if(ImmoESI.liste_des_biens.contains(nouveau)) throw new BienExistantException();
    else{
@@ -3127,6 +3384,889 @@ public void goajouter2() throws Exception {
 
  //    this.secondstage= stage;
 }
+ @FXML
+ private TextField numprop = new TextField();
+ public void prp(Bien ele,Button b) throws Exception {
+  if(ele.getSelected()==false){
+   System.out.println("here we go2");
+   //b.setStyle(HOVERED_BUTTON_STYLE);
+   for (Bien ele2:ImmoESI.choisirProprietaire(Integer.parseInt(numprop.getText())).getListe_proprietees()){
+    if (ele2.getSelected()==true){
+     System.out.println("here we go4");
+     ele2.setSelected(false);
+     //b.setStyle(IDLE_BUTTON_STYLE);
+    }
+   }
+   ele.setSelected(true);
+   // b.setStyle(HOVERED_BUTTON_STYLE);
+   bienprop();
+  }
+ }
+
+ @FXML
+
+ public void bienprop() throws Exception {
+  // maini();
+  Stage stage = Main.getPrimaryStage();
+  int cpt = 1;
+  Pane details = new Pane();
+  bienbox = new VBox();
+  for(Bien ele:ImmoESI.choisirProprietaire(Integer.parseInt(numprop.getText())).getListe_proprietees()){
+   System.out.println("hna 3lh?");
+   /************************************************** Declarations ***************************************************/
+
+   Button b = new Button();
+   StackPane r = new StackPane();
+   AnchorPane screen = new AnchorPane();
+   AnchorPane banchor = new AnchorPane();
+   ScrollPane scrollPane = new ScrollPane();
+   Text title = new Text();
+
+
+
+   Text bienName = new Text(); Text bienAdresse = new Text(); Text bienProp = new Text();
+   Text bienTypet = new Text(); Text bienTypeb = new Text(); Text bienPrix = new Text(); Text bienSurface = new Text();
+
+   Text bienName1 = new Text(); Text bienAdresse1 = new Text(); Text bienProp1 = new Text();
+   Text bienTypet1 = new Text(); Text bienTypeb1 = new Text(); Text bienPrix1 = new Text(); Text bienSurface1 = new Text();
+
+   Text bienAdresse2 = new Text();Text bienProp2 = new Text();
+   Text bienTypet2 = new Text(); Text bienTypeb2 = new Text(); Text bienPrix2 = new Text(); Text bienSurface2 = new Text();
+
+   Text bienAdresse3 = new Text();Text bienProp3 = new Text();
+   Text bienTypet3 = new Text(); Text bienTypeb3 = new Text(); Text bienPrix3 = new Text(); Text bienSurface3 = new Text();
+
+   ImageView im = new ImageView();
+   Image image = new Image("file:C:/Users/Dell/Desktop/POO/JAVAFXSETUP/src/icons/download.png");
+   im.setImage(image);
+
+
+   /************************************************** Biens Button ***************************************************/
+
+   b.setMnemonicParsing(false);
+   b.setPrefHeight(167.0);
+   b.setPrefWidth(610.0);
+   b.setId("bienbtn");
+   b.setStyle("-fx-background-color: #CDCDCD;");
+
+   b.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   b.setOnMouseExited(e -> b.setStyle(IDLE_BUTTON_STYLE));
+   //   b.setOnMouseClicked(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   b.setOnMouseClicked(e -> {
+    try {
+     prp(ele,b);
+
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
+
+   if (ele.getSelected()==true){
+    details = new Pane();
+    //banchor = new AnchorPane();
+    // bienbox = new VBox();
+    //screen = new AnchorPane();
+    //b.setStyle(HOVERED_BUTTON_STYLE);
+   }
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
+
+
+   //  if (f==0){
+   //  f =1;
+   //  ele.setSelected(true);
+   // b.setStyle(IDLE_BUTTON_STYLE);
+   //}
+
+
+
+   /************************************************** Listes des biens Pane ***************************************************/
+
+   screen.setMinWidth(900);
+   screen.setMinHeight(500);
+
+   /************************************************** More details Pane ***************************************************/
+
+
+   /************************************************** Title ***************************************************/
+
+   title.setText("Listes des biens : ");
+   title.setLayoutX(320);
+   title.setLayoutY(27);
+   title.setFont(Font.font("System", FontWeight.BOLD, 20));
+
+   /************************************************** ScrollPane ***************************************************/
+
+   scrollPane.setLayoutX(270.0);
+   scrollPane.setLayoutY(47.0);
+   scrollPane.setMaxWidth(630.0);
+   scrollPane.setMinWidth(630.0);
+   scrollPane.setMaxHeight(453.0);
+   scrollPane.setMinHeight(453.0);
+
+   /************************************************** Button Text ***************************************************/
+
+   String numbien ;
+   numbien = "Bien"+ String.valueOf(cpt)+" :";
+   cpt++;
+   //  System.out.println(numbien);
+   bienName.setText(numbien);
+   bienName.setFill(Paint.valueOf("#000000"));
+   bienName.setFont(Font.font("System", FontWeight.BOLD, 23));
+   bienName.setLayoutX(40);
+   bienName.setLayoutY(30);
+
+   bienAdresse.setText("Adresse :");
+   bienAdresse.setLayoutX(55);
+   bienAdresse.setLayoutY(60);
+   bienAdresse.setFill(Paint.valueOf("#000000"));
+   bienAdresse.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienTypeb.setText("Type de Bien :");
+   bienTypeb.setLayoutX(55);
+   bienTypeb.setLayoutY(85);
+   bienTypeb.setFill(Paint.valueOf("#000000"));
+   bienTypeb.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienTypet.setText("Type de transaction :");
+   bienTypet.setLayoutX(55);
+   bienTypet.setLayoutY(110);
+   bienTypet.setFill(Paint.valueOf("#000000"));
+   bienTypet.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienProp.setText("Propritére :");
+   bienProp.setLayoutX(55);
+   bienProp.setLayoutY(135);
+   bienProp.setFill(Paint.valueOf("#000000"));
+   bienProp.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienSurface.setText("Surface :");
+   bienSurface.setLayoutX(55);
+   bienSurface.setLayoutY(160);
+   bienSurface.setFill(Paint.valueOf("#000000"));
+   bienSurface.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienPrix.setText("Prix :");
+   bienPrix.setLayoutX(425);
+   bienPrix.setLayoutY(185);
+   bienPrix.setFill(Paint.valueOf("#000000"));
+   bienPrix.setFont(Font.font("System", FontWeight.BOLD, 23));
+
+   /************************************************** text Button ****************************************************/
+
+
+   /************************************************** Label Button ****************************************************/
+
+   bienAdresse2.setText(ele.getAdresse());
+   bienAdresse2.setLayoutX(185);
+   bienAdresse2.setLayoutY(60);
+   bienAdresse2.setFill(Paint.valueOf("#000000"));
+   bienAdresse2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienTypeb2.setText(ele.getClass().getName().substring(7));
+   bienTypeb2.setLayoutX(245);
+   bienTypeb2.setLayoutY(85);
+   bienTypeb2.setFill(Paint.valueOf("#000000"));
+   bienTypeb2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienTypet2.setText(ele.getTransaction().name());
+   bienTypet2.setLayoutX(245);
+   bienTypet2.setLayoutY(110);
+   bienTypet2.setFill(Paint.valueOf("#000000"));
+   bienTypet2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienProp2.setText(ele.getProprietaire().getNom());
+   bienProp2.setLayoutX(185);
+   bienProp2.setLayoutY(135);
+   bienProp2.setFill(Paint.valueOf("#000000"));
+   bienProp2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienSurface2.setText(String.valueOf(ele.getSurface()));
+   bienSurface2.setLayoutX(185);
+   bienSurface2.setLayoutY(160);
+   bienSurface2.setFill(Paint.valueOf("#000000"));
+   bienSurface2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienPrix2.setText(String.valueOf(ele.calculerprix()));
+   bienPrix2.setLayoutX(490);
+   bienPrix2.setLayoutY(185);
+   bienPrix2.setFill(Paint.valueOf("#000000"));
+   bienPrix2.setFont(Font.font("System", FontWeight.NORMAL, 23));
+
+   /************************************************** Label Button ****************************************************/
+
+
+
+   /************************************************** Details Text ***************************************************/
+
+   bienName1.setText(numbien);
+   bienName1.setFill(Paint.valueOf("#ffffff"));
+   bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
+   bienName1.setLayoutX(110);
+   bienName1.setLayoutY(30);
+
+   bienAdresse1.setText("Adresse :");
+   bienAdresse1.setLayoutX(20);
+   bienAdresse1.setLayoutY(260);
+   bienAdresse1.setFill(Paint.valueOf("#ffffff"));
+   bienAdresse1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   bienTypeb1.setText("Type de Bien :");
+   bienTypeb1.setLayoutX(20);
+   bienTypeb1.setLayoutY(285);
+   bienTypeb1.setFill(Paint.valueOf("#ffffff"));
+   bienTypeb1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   bienTypet1.setText("Type de transaction :");
+   bienTypet1.setLayoutX(20);
+   bienTypet1.setLayoutY(310);
+   bienTypet1.setFill(Paint.valueOf("#ffffff"));
+   bienTypet1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   bienProp1.setText("Propritére :");
+   bienProp1.setLayoutX(20);
+   bienProp1.setLayoutY(335);
+   bienProp1.setFill(Paint.valueOf("#ffffff"));
+   bienProp1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   bienSurface1.setText("Surface :");
+   bienSurface1.setLayoutX(20);
+   bienSurface1.setLayoutY(360);
+   bienSurface1.setFill(Paint.valueOf("#ffffff"));
+   bienSurface1.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+   bienPrix1.setText("Prix :");
+   bienPrix1.setLayoutX(10);
+   bienPrix1.setLayoutY(230);
+   bienPrix1.setFill(Paint.valueOf("#ffffff"));
+   bienPrix1.setFont(Font.font("System", FontWeight.BOLD, 25));
+
+   /************************************************** Details Label ***************************************************/
+   // System.out.println("Valur of selected is "+String.valueOf(ele.getSelected()));
+   if (ele.getSelected() == true) {
+    bienAdresse3.setText(ele.getAdresse());
+    bienAdresse3.setLayoutX(105);
+    bienAdresse3.setLayoutY(260);
+    bienAdresse3.setFill(Paint.valueOf("#FCB326"));
+    bienAdresse3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+    bienTypeb3.setText(ele.getClass().getName().substring(7));
+    bienTypeb3.setLayoutX(145);
+    bienTypeb3.setLayoutY(285);
+    bienTypeb3.setFill(Paint.valueOf("#FCB326"));
+    bienTypeb3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+    bienTypet3.setText(ele.getTransaction().name());
+    bienTypet3.setLayoutX(145);
+    bienTypet3.setLayoutY(310);
+    bienTypet3.setFill(Paint.valueOf("#FCB326"));
+    bienTypet3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+    bienProp3.setText(ele.getProprietaire().getNom());
+    bienProp3.setLayoutX(105);
+    bienProp3.setLayoutY(335);
+    bienProp3.setFill(Paint.valueOf("#FCB326"));
+    bienProp3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+    bienSurface3.setText(String.valueOf(ele.getSurface()));
+    bienSurface3.setLayoutX(105);
+    bienSurface3.setLayoutY(360);
+    bienSurface3.setFill(Paint.valueOf("#FCB326"));
+    bienSurface3.setFont(Font.font("System", FontWeight.BOLD, 12));
+
+    bienPrix3.setText(String.valueOf(ele.calculerprix()));
+    bienPrix3.setLayoutX(110);
+    bienPrix3.setLayoutY(230);
+    bienPrix3.setFill(Paint.valueOf("#FCB326"));
+    bienPrix3.setFont(Font.font("System", FontWeight.BOLD, 25));
+   }
+
+   /************************************************** Button AnchorPane ***************************************************/
+
+   banchor.setMinHeight(200);
+   banchor.setMinWidth(200);
+   //banchor.setStyle("-fx-background-color: #7F59B0;");
+
+   /************************************************** Image ***************************************************/
+
+   //   im.setFitHeight(150);
+   // im.setFitWidth(200);
+   //    im.setLayoutX(35);
+   //    im.setLayoutY(60);
+
+   /************************************************** Affectation ***************************************************/
+
+
+
+   b.setGraphic(banchor);
+   banchor.getChildren().add(bienName);
+   banchor.getChildren().add(bienAdresse);
+   banchor.getChildren().add(bienTypeb);
+   banchor.getChildren().add(bienTypet);
+   banchor.getChildren().add(bienProp);
+   banchor.getChildren().add(bienSurface);
+   banchor.getChildren().add(bienPrix);
+
+   banchor.getChildren().add(bienAdresse2);
+   banchor.getChildren().add(bienTypeb2);
+   banchor.getChildren().add(bienTypet2);
+   banchor.getChildren().add(bienProp2);
+   banchor.getChildren().add(bienSurface2);
+   banchor.getChildren().add(bienPrix2);
+
+
+   if (ele.getSelected() == true) {
+
+
+    details.setStyle("-fx-background-color: #7F59B0;");
+    details.setMaxWidth(290);
+    details.setMinHeight(500);
+    details.setMinHeight(500);
+    details.setMinWidth(290);
+    details.setLayoutX(0);
+    details.setLayoutY(0);
+    details.getChildren().add(bienName1);
+    details.getChildren().add(bienAdresse1);
+    details.getChildren().add(bienTypeb1);
+    details.getChildren().add(bienTypet1);
+    details.getChildren().add(bienProp1);
+    details.getChildren().add(bienSurface1);
+    details.getChildren().add(bienPrix1);
+
+
+    details.getChildren().add(bienAdresse3);
+    details.getChildren().add(bienTypeb3);
+    details.getChildren().add(bienTypet3);
+    details.getChildren().add(bienProp3);
+    details.getChildren().add(bienSurface3);
+    details.getChildren().add(bienPrix3);
+
+
+    details.getChildren().add(im);
+   }
+
+   //banchor.setOnMouseClicked(e -> banchor.setStyle(HOVERED_BUTTON_STYLE));
+   bienbox.getChildren().add(b);
+   r.getChildren().add(bienbox);
+   scrollPane.setContent(r);
+   screen.getChildren().add(scrollPane);
+   screen.getChildren().add(title);
+   details.getChildren().add(retour);
+   screen.getChildren().add(details);
+   //   screen.getChildren().add(im);
+   //   scrollPane.setContent(details);
+
+   Scene sc = new Scene(screen,900,500);
+   stage.setScene(sc);
+   //   stage.setScene(new Scene(r, 900, 500));
+   //   Parent root = FXMLLoader.load(getClass().getResource("tous_les_bien.fxml"));
+   stage.setTitle("ImmoEsi");
+   // stage.setScene(new Scene(root, 900, 500));
+   stage.show();
+
+  }
+
+  //    this.secondstage= stage;
+ }
+ @FXML
+ private TextField nummodif;
+@FXML
+public void chargermodif() throws Exception {
+  adrprop.setPromptText(ImmoESI.choisirBien(1).getProprietaire().getAdresse());
+  //oussama.setValue(ImmoESI.choisirBien(1).getClass().getName());
+  oussama.setAccessibleText(ImmoESI.choisirBien(1).getClass().getName());
+  chemsou.setValue(ImmoESI.choisirBien(1).getTransaction().name());
+ nomprop.setPromptText(ImmoESI.choisirBien(1).getProprietaire().getNom());
+  proprop.setPromptText(ImmoESI.choisirBien(1).getProprietaire().getPrenom());
+  emailprop.setPromptText(ImmoESI.choisirBien(1).getProprietaire().getMail());
+  adr.setPromptText(ImmoESI.choisirBien(1).getAdresse());
+  wila.setPromptText(ImmoESI.choisirBien(1).getWilaya().getClass().getName());
+  supr.setPromptText(String.valueOf(ImmoESI.choisirBien(1).getSurface()));
+  pri.setPromptText(String.valueOf(ImmoESI.choisirBien(1).getPrix()));
+  negos.setPromptText(String.valueOf(ImmoESI.choisirBien(1).isNegociable()));
+  desc.setPromptText(ImmoESI.choisirBien(1).getDescriptif());
+  photos.setPromptText(ImmoESI.choisirBien(1).getPhotos());
+  nbe.setPromptText(String.valueOf(2));
+  nbp.setPromptText(String.valueOf(5));
+  meublee.setPromptText("oui");
+  jardin.setPromptText("non");
+  piscine.setPromptText("non");
+  garage.setPromptText("oui");
+  gomodif();
+ }
+
+ @FXML
+ public void gomodif() throws Exception {
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("modifierbien.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+  //    this.secondstage= stage;
+ }
+ @FXML
+ public void choixmodif() throws Exception {
+  Stage stage = Main.getPrimaryStage();
+  Parent root = FXMLLoader.load(getClass().getResource("choisirmodif.fxml"));
+  stage.setTitle("ImmoEsi");
+  stage.setScene(new Scene(root, 900, 500));
+  stage.show();
+  //    this.secondstage= stage;
+ }
+
+ public void modifBien()  throws SuperficieHabitableException,SurfaceNulleException,BienExistantException{
+  Scanner sc = new Scanner(System.in);
+  Bien nouveau = null;
+
+
+
+
+  String type_bien = oussama.getValue();
+
+
+  TypeDeTransaction transaction =Enum.valueOf(TypeDeTransaction.class, chemsou.getValue().toLowerCase());
+
+
+  String adresse_prop=adrprop.getText();
+  String nom=nomprop.getText();
+  String prenom=proprop.getText();
+  String num_tel="029089283";
+  String mail=emailprop.getText();
+  Proprietaire proprietaire=new Proprietaire(nom,num_tel,prenom,mail,adresse_prop);
+
+  if (oussama.getValue().equalsIgnoreCase("Maison")) {
+   try {
+    nouveau = AjouterMaison(proprietaire, transaction);
+   }catch (SuperficieHabitableException e){
+    e.printStackTrace();
+    System.out.println("Superficie habitable invalide");
+   }
+   catch (SurfaceNulleException e) {
+    e.printStackTrace();
+    System.out.println("Surface invalide");
+   }
+   if(ImmoESI.liste_des_biens.contains(nouveau)) throw new BienExistantException();
+   else{
+    ImmoESI.liste_des_biens.add(nouveau); //Utiliser un TreeSet supprime la possibilité de doublons
+    ImmoESI.proprietaires.add(proprietaire);
+    //Ajouter le bien à la liste des biens du proprietaires
+    proprietaire.liste_proprietees.add(nouveau);}
+  }/* else {
+  if (type_bien.equalsIgnoreCase("appartement")) {
+    try {
+     nouveau = AjouterAppart(proprietaire, transaction);
+    } catch (SurfaceNulleException e) {
+     e.printStackTrace();
+     System.out.println("Surface exception");
+    }
+    if(liste_des_biens.contains(nouveau)) System.out.println("Ce bien existe deja");
+    else{
+     liste_des_biens.add(nouveau);
+     proprietaires.add(proprietaire);
+     //Ajouter le bien à la liste des biens du proprietaires
+     proprietaire.liste_proprietees.add(nouveau);}
+   } else {
+    if (type_bien.equalsIgnoreCase("terrain")) {
+     try {
+      nouveau = AjouterTerrain(proprietaire, transaction);
+     } catch (SurfaceNulleException e) {
+      e.printStackTrace();
+     }
+     if(liste_des_biens.contains(nouveau)) System.out.println("Ce bien existe deja");
+     else{
+      liste_des_biens.add(nouveau);
+      proprietaires.add(proprietaire);
+      proprietaire.liste_proprietees.add(nouveau);}
+    } else {
+     System.out.println("Type de bien invalide! ");
+    }
+   }
+  }*/
+ }
+
+
+ public void lect(Proprietaire ele,Button b) throws Exception {
+  if(ele.getSelected()==false){
+   System.out.println("here we go2");
+   //b.setStyle(HOVERED_BUTTON_STYLE);
+   for (Proprietaire ele2 : ImmoESI.proprietaires){
+    if (ele2.getSelected()==true){
+     System.out.println("here we go4");
+     ele2.setSelected(false);
+     //b.setStyle(IDLE_BUTTON_STYLE);
+    }
+   }
+   ele.setSelected(true);
+   // b.setStyle(HOVERED_BUTTON_STYLE);
+   gotouslesprop();
+  }
+ }
+
+ @FXML
+
+ public void gotouslesprop() throws Exception {
+
+  // maini();
+  Stage stage = Main.getPrimaryStage();
+
+  int cpt = 1;
+  Pane details = new Pane();
+  bienbox = new VBox();
+  System.out.println("hna 3lh?");
+  for(Proprietaire ele : ImmoESI.proprietaires){
+
+   /************************************************** Declarations ***************************************************/
+
+   Button b = new Button();
+   StackPane r = new StackPane();
+   AnchorPane screen = new AnchorPane();
+   AnchorPane banchor = new AnchorPane();
+   ScrollPane scrollPane = new ScrollPane();
+   Text title = new Text();
+
+
+
+   Text bienName = new Text(); Text bienAdresse = new Text(); Text bienProp = new Text();
+   Text bienTypet = new Text(); Text bienTypeb = new Text(); Text bienPrix = new Text(); Text bienSurface = new Text();
+
+   Text bienName1 = new Text(); Text bienAdresse1 = new Text(); Text bienProp1 = new Text();
+   Text bienTypet1 = new Text(); Text bienTypeb1 = new Text(); Text bienPrix1 = new Text(); Text bienSurface1 = new Text();
+
+   Text bienAdresse2 = new Text();Text bienProp2 = new Text();
+   Text bienTypet2 = new Text(); Text bienTypeb2 = new Text(); Text bienPrix2 = new Text(); Text bienSurface2 = new Text();
+
+   Text bienAdresse3 = new Text();Text bienProp3 = new Text();
+   Text bienTypet3 = new Text(); Text bienTypeb3 = new Text(); Text bienPrix3 = new Text(); Text bienSurface3 = new Text();
+
+   ImageView im = new ImageView();
+   Image image = new Image("file:download.png");
+   im.setImage(image);
+
+
+   /************************************************** Biens Button ***************************************************/
+
+   b.setMnemonicParsing(false);
+   b.setPrefHeight(167.0);
+   b.setPrefWidth(610.0);
+   b.setId("bienbtn");
+   b.setStyle("-fx-background-color: #CDCDCD;");
+
+   b.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   b.setOnMouseExited(e -> b.setStyle(IDLE_BUTTON_STYLE));
+   //   b.setOnMouseClicked(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   b.setOnMouseClicked(e -> {
+    try {
+     lect(ele,b);
+
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
+
+   if (ele.getSelected()==true){
+    details = new Pane();
+    //banchor = new AnchorPane();
+    // bienbox = new VBox();
+    //screen = new AnchorPane();
+    //b.setStyle(HOVERED_BUTTON_STYLE);
+   }
+   Button retour = new Button();
+   retour.setMnemonicParsing(false);
+   retour.setPrefHeight(30.0);
+   //   b.setMaxHeight(130.0);
+   //   b.setMinHeight(130.0);
+   retour.setPrefWidth(60.0);
+   retour.setLayoutX(10);
+   retour.setLayoutY(10);
+   retour.setId("bienbtn");
+   retour.setText("Retour");
+   retour.setStyle("-fx-background-color: #E84C89;");
+   retour.setOnMouseEntered(e -> b.setStyle(HOVERED_BUTTON_STYLE));
+   retour.setOnMouseExited(e -> b.setStyle(HOVERED_3BUTTON_STYLE));
+   retour.setOnMouseClicked(e -> {
+    try {
+     go_in();
+    } catch (Exception ex) {
+     ex.printStackTrace();
+    }
+   });
+
+   //  if (f==0){
+   //  f =1;
+   //  ele.setSelected(true);
+   // b.setStyle(IDLE_BUTTON_STYLE);
+   //}
+
+
+
+   /************************************************** Listes des biens Pane ***************************************************/
+
+   screen.setMinWidth(900);
+   screen.setMinHeight(500);
+
+   /************************************************** More details Pane ***************************************************/
+
+
+   /************************************************** Title ***************************************************/
+
+   title.setText("Listes des biens : ");
+   title.setLayoutX(320);
+   title.setLayoutY(27);
+   title.setFont(Font.font("System", FontWeight.BOLD, 20));
+
+   /************************************************** ScrollPane ***************************************************/
+
+   scrollPane.setLayoutX(270.0);
+   scrollPane.setLayoutY(47.0);
+   scrollPane.setMaxWidth(630.0);
+   scrollPane.setMinWidth(630.0);
+   scrollPane.setMaxHeight(453.0);
+   scrollPane.setMinHeight(453.0);
+
+   /************************************************** Button Text ***************************************************/
+
+   String numbien ;
+   numbien = "Prop "+ String.valueOf(cpt)+" :";
+   cpt++;
+   //  System.out.println(numbien);
+   bienName.setText(numbien);
+   bienName.setFill(Paint.valueOf("#000000"));
+   bienName.setFont(Font.font("System", FontWeight.BOLD, 23));
+   bienName.setLayoutX(40);
+   bienName.setLayoutY(30);
+
+   bienAdresse.setText("Nom : ");
+   bienAdresse.setLayoutX(55);
+   bienAdresse.setLayoutY(60);
+   bienAdresse.setFill(Paint.valueOf("#000000"));
+   bienAdresse.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienTypeb.setText("Prenon :");
+   bienTypeb.setLayoutX(55);
+   bienTypeb.setLayoutY(85);
+   bienTypeb.setFill(Paint.valueOf("#000000"));
+   bienTypeb.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienTypet.setText("Email :");
+   bienTypet.setLayoutX(55);
+   bienTypet.setLayoutY(110);
+   bienTypet.setFill(Paint.valueOf("#000000"));
+   bienTypet.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienProp.setText("Adresse :");
+   bienProp.setLayoutX(55);
+   bienProp.setLayoutY(135);
+   bienProp.setFill(Paint.valueOf("#000000"));
+   bienProp.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+
+   /************************************************** text Button ****************************************************/
+
+
+   /************************************************** Label Button ****************************************************/
+
+   bienAdresse2.setText(ele.getNom());
+   bienAdresse2.setLayoutX(185);
+   bienAdresse2.setLayoutY(60);
+   bienAdresse2.setFill(Paint.valueOf("#000000"));
+   bienAdresse2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+
+   bienTypet2.setText(ele.getPrenom());
+   bienTypet2.setLayoutX(245);
+   bienTypet2.setLayoutY(85);
+   bienTypet2.setFill(Paint.valueOf("#000000"));
+   bienTypet2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienProp2.setText(ele.getMail());
+   bienProp2.setLayoutX(185);
+   bienProp2.setLayoutY(110);
+   bienProp2.setFill(Paint.valueOf("#000000"));
+   bienProp2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+   bienSurface2.setText(ele.getAdresse());
+   bienSurface2.setLayoutX(185);
+   bienSurface2.setLayoutY(135);
+   bienSurface2.setFill(Paint.valueOf("#000000"));
+   bienSurface2.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+
+   /************************************************** Label Button ****************************************************/
+
+
+
+   /************************************************** Details Text ***************************************************/
+
+   bienName1.setText(numbien);
+   bienName1.setFill(Paint.valueOf("#ffffff"));
+   bienName1.setFont(Font.font("System", FontWeight.BOLD, 25));
+   bienName1.setLayoutX(110);
+   bienName1.setLayoutY(30);
+
+   bienAdresse1.setText("Nom : ");
+   bienAdresse1.setLayoutX(55);
+   bienAdresse1.setLayoutY(60);
+   bienAdresse1.setFill(Paint.valueOf("#000000"));
+   bienAdresse1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienTypeb1.setText("Prenon :");
+   bienTypeb1.setLayoutX(55);
+   bienTypeb1.setLayoutY(85);
+   bienTypeb1.setFill(Paint.valueOf("#000000"));
+   bienTypeb1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienTypet1.setText("Email :");
+   bienTypet1.setLayoutX(55);
+   bienTypet1.setLayoutY(110);
+   bienTypet1.setFill(Paint.valueOf("#000000"));
+   bienTypet1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   bienProp1.setText("Adresse :");
+   bienProp1.setLayoutX(55);
+   bienProp1.setLayoutY(135);
+   bienProp1.setFill(Paint.valueOf("#000000"));
+   bienProp1.setFont(Font.font("System", FontWeight.BOLD, 15));
+
+   /************************************************** Details Label ***************************************************/
+   // System.out.println("Valur of selected is "+String.valueOf(ele.getSelected()));
+   if (ele.getSelected() == true) {
+    bienAdresse3.setText(ele.getNom());
+    bienAdresse3.setLayoutX(185);
+    bienAdresse3.setLayoutY(60);
+    bienAdresse3.setFill(Paint.valueOf("#000000"));
+    bienAdresse3.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+
+    bienTypet3.setText(ele.getPrenom());
+    bienTypet3.setLayoutX(245);
+    bienTypet3.setLayoutY(85);
+    bienTypet3.setFill(Paint.valueOf("#000000"));
+    bienTypet3.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+    bienProp3.setText(ele.getMail());
+    bienProp3.setLayoutX(185);
+    bienProp3.setLayoutY(110);
+    bienProp3.setFill(Paint.valueOf("#000000"));
+    bienProp3.setFont(Font.font("System", FontWeight.NORMAL, 15));
+
+    bienSurface3.setText(ele.getAdresse());
+    bienSurface3.setLayoutX(185);
+    bienSurface3.setLayoutY(135);
+    bienSurface3.setFill(Paint.valueOf("#000000"));
+    bienSurface3.setFont(Font.font("System", FontWeight.NORMAL, 15));;
+   }
+
+   /************************************************** Button AnchorPane ***************************************************/
+
+   banchor.setMinHeight(200);
+   banchor.setMinWidth(200);
+   //banchor.setStyle("-fx-background-color: #7F59B0;");
+
+   /************************************************** Image ***************************************************/
+
+   //   im.setFitHeight(150);
+   // im.setFitWidth(200);
+   //    im.setLayoutX(35);
+   //    im.setLayoutY(60);
+
+   /************************************************** Affectation ***************************************************/
+
+
+
+   b.setGraphic(banchor);
+   banchor.getChildren().add(bienName);
+   banchor.getChildren().add(bienAdresse);
+   banchor.getChildren().add(bienTypeb);
+   banchor.getChildren().add(bienTypet);
+   banchor.getChildren().add(bienProp);
+   banchor.getChildren().add(bienSurface);
+   banchor.getChildren().add(bienPrix);
+
+   banchor.getChildren().add(bienAdresse2);
+   banchor.getChildren().add(bienTypeb2);
+   banchor.getChildren().add(bienTypet2);
+   banchor.getChildren().add(bienProp2);
+   banchor.getChildren().add(bienSurface2);
+   banchor.getChildren().add(bienPrix2);
+
+
+   if (ele.getSelected() == true) {
+
+
+    details.setStyle("-fx-background-color: #7F59B0;");
+    details.setMaxWidth(290);
+    details.setMinHeight(500);
+    details.setMinHeight(500);
+    details.setMinWidth(290);
+    details.setLayoutX(0);
+    details.setLayoutY(0);
+    details.getChildren().add(bienName1);
+    details.getChildren().add(bienAdresse1);
+    details.getChildren().add(bienTypeb1);
+    details.getChildren().add(bienTypet1);
+    details.getChildren().add(bienProp1);
+    details.getChildren().add(bienSurface1);
+    details.getChildren().add(bienPrix1);
+
+
+    details.getChildren().add(bienAdresse3);
+    details.getChildren().add(bienTypeb3);
+    details.getChildren().add(bienTypet3);
+    details.getChildren().add(bienProp3);
+    details.getChildren().add(bienSurface3);
+    details.getChildren().add(bienPrix3);
+
+
+    details.getChildren().add(im);
+
+   }
+
+   //banchor.setOnMouseClicked(e -> banchor.setStyle(HOVERED_BUTTON_STYLE));
+   bienbox.getChildren().add(b);
+   r.getChildren().add(bienbox);
+   scrollPane.setContent(r);
+   screen.getChildren().add(scrollPane);
+   screen.getChildren().add(title);
+   details.getChildren().add(retour);
+   screen.getChildren().add(details);
+   //   screen.getChildren().add(im);
+   //   scrollPane.setContent(details);
+
+   Scene sc = new Scene(screen,900,500);
+   stage.setScene(sc);
+   //   stage.setScene(new Scene(r, 900, 500));
+   //   Parent root = FXMLLoader.load(getClass().getResource("tous_les_bien.fxml"));
+   stage.setTitle("ImmoEsi");
+   // stage.setScene(new Scene(root, 900, 500));
+   stage.show();
+
+  }
+
+  //    this.secondstage= stage;
+ }
+
+
+
+
+
 
 
 

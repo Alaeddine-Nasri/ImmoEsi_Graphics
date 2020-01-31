@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Maison extends Habitable implements Serializable {
-    private int nbr_etages;
-    private boolean garage;
-    private boolean jardin;
-    private boolean piscine;
-    private float surface_habitable;
+    protected int nbr_etages;
+    protected boolean garage;
+    protected boolean jardin;
+    protected boolean piscine;
+    protected float surface_habitable;
 
     public Maison(String adresse, Wilaya wilaya, float surface, Proprietaire proprietaire, TypeDeTransaction transaction, float prix, boolean negociable, String descriptif, LocalDate date, String photos, int nbr_pieces, Boolean meuble, int nbr_etages, boolean garage, boolean jardin, boolean piscine, float surface_habitable)  {
         super(adresse, wilaya, surface, proprietaire, transaction, prix, negociable, descriptif, date, photos, nbr_pieces, meuble);
@@ -18,6 +18,26 @@ public class Maison extends Habitable implements Serializable {
         this.piscine = piscine;
         this.surface_habitable = surface_habitable;
 
+    }
+
+    public int getNbr_etages() {
+        return nbr_etages;
+    }
+
+    public boolean isGarage() {
+        return garage;
+    }
+
+    public boolean isJardin() {
+        return jardin;
+    }
+
+    public boolean isPiscine() {
+        return piscine;
+    }
+
+    public float getSurface_habitable() {
+        return surface_habitable;
     }
 
     public Maison(String adresse, Wilaya wilaya, float surface, Proprietaire proprietaire, TypeDeTransaction transaction, float prix, boolean negociable, String descriptif, LocalDate date, String photos, int nbr_etages, boolean garage, boolean jardin, boolean piscine, float surface_habitable) {

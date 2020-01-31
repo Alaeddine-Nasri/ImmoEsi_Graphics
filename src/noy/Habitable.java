@@ -12,6 +12,14 @@ public abstract class Habitable extends Bien {
         this.meuble = meuble;
     }
 
+    public int getNbr_pieces() {
+        return nbr_pieces;
+    }
+
+    public Boolean getMeuble() {
+        return meuble;
+    }
+
     public Habitable(String adresse, Wilaya wilaya, float surface, Proprietaire proprietaire, TypeDeTransaction transaction, float prix, boolean negociable, String descriptif, LocalDate date, String photos) {
         super(adresse, wilaya, surface, proprietaire, transaction, prix, negociable, descriptif, date, photos);
     }
